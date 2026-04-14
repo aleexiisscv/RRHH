@@ -42,6 +42,88 @@ Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
 *   **El Anuncio de Empleo:** Al publicar una oferta, no solo debemos proporcionar información objetiva, sino también incluir aspectos sobre la manera de trabajar en la empresa (cultura organizacional). Es imperativo mantener la obligación de neutralidad respecto de ambos sexos. Como buena práctica, se aconseja consultar con el equipo actual el boceto de la oferta para dirigirse mejor al grupo objetivo.
 """)
 
+    st.markdown("---")
+    st.header("Autoevaluación")
+    st.write("Pon a prueba tus conocimientos sobre la planificación y captación de talento.")
+
+    with st.form("quiz_form"):
+        q1 = st.radio(
+            "1. Según la planificación de la contratación, ¿qué factor nos obliga a preparar el reclutamiento con mayor tiempo de antelación?",
+            options=["A) El cálculo de las contingencias comunes", 
+                     "B) La escasez de personal cualificado en el mercado", 
+                     "C) El número de horas extras permitidas", 
+                     "D) El uso de redes sociales"],
+            index=None
+        )
+        
+        q2 = st.radio(
+            "2. ¿Qué herramienta es la base para el 'camino indirecto' en el reclutamiento interno?",
+            options=["A) Las ETTs", 
+                     "B) La convocatoria oficial de plaza", 
+                     "C) La valoración periódica de los puestos de trabajo", 
+                     "D) El anuncio de empleo neutral"],
+            index=None
+        )
+
+        q3 = st.radio(
+            "3. En el cálculo de los costes operativos para comprobar la viabilidad financiera, ¿qué porcentaje aproximado suelen suponer las Contingencias Comunes a cargo de la empresa?",
+            options=["A) 6,00%", "B) 7,70%", "C) 14,00%", "D) 23,60%"],
+            index=None
+        )
+
+        q4 = st.radio(
+            "4. ¿Cuál de los siguientes NO es un método de reclutamiento externo?",
+            options=["A) Colaboración con oficinas del INEM", 
+                     "B) Consultoras de reclutamiento", 
+                     "C) Promoción directa de un subordinado", 
+                     "D) Networking o 'boca a boca'"],
+            index=None
+        )
+
+        q5 = st.radio(
+            "5. A la hora de redactar un anuncio de empleo externo, ¿qué dualidad informativa debe cumplir?",
+            options=["A) Información objetiva de tareas + cultura organizacional", 
+                     "B) Salario bruto + salario neto", 
+                     "C) Horario + Contingencias comunes", 
+                     "D) Neutralidad legal + Listado de horas extras"],
+            index=None
+        )
+
+        submitted = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted:
+        st.subheader("Resultados")
+        
+        # Pregunta 1
+        if q1 and q1.startswith("B"):
+            st.success("Pregunta 1: Correcto. La escasez de perfiles cualificados en el mercado laboral exige iniciar la búsqueda mucho antes para garantizar el éxito.")
+        else:
+            st.error("Pregunta 1: Incorrecto. La escasez de perfiles cualificados en el mercado laboral exige iniciar la búsqueda mucho antes para garantizar el éxito.")
+            
+        # Pregunta 2
+        if q2 and q2.startswith("C"):
+            st.success("Pregunta 2: Correcto. El camino indirecto busca detectar el potencial latente de los trabajadores actuales mediante la Valoración de Puestos de Trabajo (VPT).")
+        else:
+            st.error("Pregunta 2: Incorrecto. El camino indirecto busca detectar el potencial latente de los trabajadores actuales mediante la Valoración de Puestos de Trabajo (VPT).")
+            
+        # Pregunta 3
+        if q3 and q3.startswith("D"):
+            st.success("Pregunta 3: Correcto. Las Contingencias Comunes son el mayor porcentaje, suponiendo habitualmente un 23,60%.")
+        else:
+            st.error("Pregunta 3: Incorrecto. Las Contingencias Comunes son el mayor porcentaje, suponiendo habitualmente un 23,60%.")
+            
+        # Pregunta 4
+        if q4 and q4.startswith("C"):
+            st.success("Pregunta 4: Correcto. La promoción directa es un método de reclutamiento interno.")
+        else:
+            st.error("Pregunta 4: Incorrecto. La promoción directa es un método de reclutamiento interno.")
+            
+        # Pregunta 5
+        if q5 and q5.startswith("A"):
+            st.success("Pregunta 5: Correcto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
+        else:
+            st.error("Pregunta 5: Incorrecto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
+
 elif seccion == "2. El ADP":
     st.header("2. El ADP")
     st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
