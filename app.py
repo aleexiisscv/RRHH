@@ -1,106 +1,51 @@
 import streamlit as st
-import graphviz
 
-# Configuración inicial de la página
-st.set_page_config(page_title="Análisis y Descripción de Puestos", layout="wide")
+# Configuración de la página (Mobile-First)
+st.set_page_config(
+    page_title="RRHH - Reclutamiento y ADP",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
 
-# Inicialización de la variable de estado para manejar la navegación
-if 'step' not in st.session_state:
-    st.session_state.step = 1
+# Navegación en la barra lateral
+st.sidebar.title("Navegación")
+seccion = st.sidebar.radio(
+    "Selecciona una sección:",
+    ["1. El Reclutamiento", "2. El ADP", "3. Técnicas de Recogida"]
+)
 
-def next_step():
-    """Avanza al siguiente paso."""
-    if st.session_state.step < 3:
-        st.session_state.step += 1
-
-def prev_step():
-    """Retrocede al paso anterior."""
-    if st.session_state.step > 1:
-        st.session_state.step -= 1
-
-# Título y navegación superior
-st.sidebar.title("Navegación del ADP")
-st.sidebar.markdown(f"**Paso actual: {st.session_state.step} de 3**")
-
-# Botones de navegación en la barra lateral
-col1, col2 = st.sidebar.columns(2)
-with col1:
-    st.button("Anterior", on_click=prev_step, disabled=st.session_state.step == 1, use_container_width=True)
-with col2:
-    st.button("Siguiente", on_click=next_step, disabled=st.session_state.step == 3, use_container_width=True)
-
-st.sidebar.divider()
-
-# ----- PASO 1 -----
-if st.session_state.step == 1:
-    st.title("Paso 1: El Laberinto Teórico")
+if seccion == "1. El Reclutamiento":
+    # Contenido de la Sección 1
     st.markdown("""
-    En el Análisis y Descripción de Puestos (ADP) existen diferentes técnicas formales, pero usarlas de forma aislada deja **puntos ciegos**:
-    
-    *   **La observación** capta lo físico pero ignora los procesos mentales del trabajador.
-    *   **La entrevista** profundiza en los detalles, pero puede estar sujeta a sesgos cognitivos o percepciones equivocadas.
-    *   **Los cuestionarios** abarcan mucha información de forma rápida, pero pierden el detalle cualitativo.
-    """)
-    
-    # Generación de gráfico Graphviz de Nodos Aislados
-    graph = graphviz.Digraph(comment='El Laberinto Teórico')
-    graph.attr(rankdir='LR', size='8,5')
-    
-    # Nodos sin conexiones
-    graph.node('obs', 'Observación\nDirecta', color='dodgerblue', style='filled', fontcolor='white', shape='circle')
-    graph.node('ent', 'Métodos de Interacción\n(Entrevistas)', color='crimson', style='filled', fontcolor='white', shape='circle')
-    graph.node('cue', 'Métodos de Registro\n(Cuestionarios)', color='forestgreen', style='filled', fontcolor='white', shape='circle')
-    
-    st.graphviz_chart(graph)
+# 1. El Reclutamiento: Planificación y Captación de Talento
 
-# ----- PASO 2 -----
-elif st.session_state.step == 2:
-    st.title("Paso 2: La Triangulación Metodológica")
-    st.markdown("""
-    La verdadera solución en el entorno de recursos humanos es un **enfoque mixto**. 
-    
-    La **triangulación metdológica** es la acción de combinar herramientas para que las fortalezas de unas compensen las debilidades de las otras.
-    """)
-    
-    # Generación de gráfico Graphviz de Convergencia
-    graph = graphviz.Digraph(comment='Triangulación')
-    graph.attr(rankdir='LR') # De izquierda a derecha
-    
-    # Nodos originales
-    graph.node('obs', 'Observación\nDirecta', color='dodgerblue', style='filled', fontcolor='white', shape='circle')
-    graph.node('ent', 'Métodos de Interacción\n(Entrevistas)', color='crimson', style='filled', fontcolor='white', shape='circle')
-    graph.node('cue', 'Métodos de Registro\n(Cuestionarios)', color='forestgreen', style='filled', fontcolor='white', shape='circle')
-    
-    # Nodo central convergente
-    graph.node('tri', 'Triangulación\nMetodológica', color='indigo', style='filled, bold', fontcolor='white', shape='box', fontsize='16')
-    
-    # Aristas (flechas) hacia el centro
-    graph.edge('obs', 'tri')
-    graph.edge('ent', 'tri')
-    graph.edge('cue', 'tri')
-    
-    st.graphviz_chart(graph)
+El Reclutamiento no es una función administrativa aislada, sino el proceso técnico de prospección para captar talento cuando la plantilla actual es insuficiente para cubrir las necesidades futuras de la organización.
 
-# ----- PASO 3 -----
-elif st.session_state.step == 3:
-    st.title("Paso 3: Aplicación al Caso Práctico (El Pintor)")
-    st.markdown("""
-    Finalmente, aplicamos la triangulación al análisis concreto del puesto de un **pintor de carrocería**. El análisis se divide en 3 fases secuenciales:
-    
-    1.  **Amplitud**: Uso de cuestionarios para definir los EPIs básicos requeridos y mapear competencias superficiales.
-    2.  **Realidad Física**: Uso de la observación directa para inspeccionar el entorno físico en el que el pintor opera y tomar tiempos de ejecución.
-    3.  **Profundidad**: Aplicación de la Entrevista de Incidentes Críticos para evaluar directamente cómo el operario resuelve problemas complejos y situaciones imprevistas.
-    """)
-    
-    # Generación de gráfico Graphviz de Flujo Secuencial Lineal
-    graph = graphviz.Digraph(comment='El Pintor')
-    graph.attr(rankdir='LR', size='10,4')
-    
-    graph.node('F1', 'Fase 1: Cuestionarios\n(Amplitud)', shape='note', style='filled', color='lightblue', fontcolor='black')
-    graph.node('F2', 'Fase 2: Observación Directa\n(Entorno Físico)', shape='note', style='filled', color='lightgreen', fontcolor='black')
-    graph.node('F3', 'Fase 3: Entrevista de\nIncidentes Críticos\n(Profundidad)', shape='note', style='filled', color='lightcoral', fontcolor='black')
-    
-    graph.edge('F1', 'F2', label=' Siguiente Paso')
-    graph.edge('F2', 'F3', label=' Siguiente Paso')
-    
-    st.graphviz_chart(graph)
+## 1.1. Planificación Estratégica
+Antes de buscar candidatos, es vital planificar la captación basándose en dos pilares:
+
+*   **Gestión del tiempo:** Necesitaremos más tiempo de antelación cuanto mayor sea la escasez de personal cualificado en el mercado de trabajo.
+*   **Viabilidad Financiera:** Partiendo únicamente de la necesidad neta de personal no sabremos si podemos permitirnos esa plantilla. Es necesario calcular los costes de personal para el período planificado. Esto incluye sueldos brutos, pluses, horas extras y las cotizaciones a la Seguridad Social (por ejemplo, las Contingencias Comunes suponen un 23,60% a cargo de la empresa). La informática nos ayuda a realizar simulaciones del tipo "qué-hubiera-pasado-si..." para evaluar diferentes escenarios.
+
+## 1.2. Estrategias de Captación: Reclutamiento Interno
+Buscar trabajadores dentro de la propia empresa fomenta la motivación. Existen dos caminos principales:
+
+*   **Vía Directa:** Convocar de forma oficial la plaza a ocupar para que los trabajadores presenten su solicitud, o dirigirse directamente a un trabajador para plantearle el cambio.
+*   **Vía Indirecta:** Averiguar, mediante valoraciones periódicas, el potencial de los trabajadores para ocupar otros puestos. Para esto, la valoración de los puestos de trabajo debe ser aceptada por todos los empleados a los que afecte.
+
+💡 **Alternativas previas:** A veces no es necesario contratar. A corto plazo se pueden usar horas extras. A medio y largo plazo, reducir el absentismo o mejorar los recursos técnicos permite trabajar de forma más productiva, reduciendo la necesidad de nuevas contrataciones.
+
+## 1.3. Estrategias de Captación: Reclutamiento Externo
+Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
+
+*   **Intermediarios y Networking:** Consultar bolsas de empleo, agencias locales (INEM), o recurrir a empresas de trabajo temporal (ETT) y consultoras para cubrir puestos de manera inmediata. Además, implicar a los trabajadores actuales mediante el "boca a boca" resulta un recurso económico y muy eficaz.
+*   **El Anuncio de Empleo:** Al publicar una oferta, no solo debemos proporcionar información objetiva, sino también incluir aspectos sobre la manera de trabajar en la empresa (cultura organizacional). Es imperativo mantener la obligación de neutralidad respecto de ambos sexos. Como buena práctica, se aconseja consultar con el equipo actual el boceto de la oferta para dirigirse mejor al grupo objetivo.
+""")
+
+elif seccion == "2. El ADP":
+    st.header("2. El ADP")
+    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
+
+elif seccion == "3. Técnicas de Recogida":
+    st.header("3. Técnicas de Recogida")
+    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
