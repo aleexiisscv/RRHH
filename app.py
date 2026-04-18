@@ -153,6 +153,101 @@ elif seccion == "2. El ADP":
         st.markdown("🔹 **¿Por qué lo hace?** (Misión y finalidad)")
         st.markdown("🔹 **¿Quién lo hace?** (Requisitos y aptitudes humanas)")
 
+    st.markdown("---")
+    st.header("Autoevaluación")
+    st.write("Pon a prueba tus conocimientos sobre el Análisis y Descripción de Puestos.")
+
+    with st.form("form_adp"):
+        q1_adp = st.radio(
+            "1. El Análisis y Descripción de Puestos (ADP) se caracteriza principalmente por centrarse en:",
+            options=[
+                "A) La persona que ocupa el cargo actualmente",
+                "B) El puesto de trabajo en sí mismo independientemente de quién lo ocupe",
+                "C) El cálculo de las horas extras",
+                "D) La evaluación del desempeño del empleado"
+            ],
+            index=None
+        )
+
+        q2_adp = st.radio(
+            "2. Dentro del \"Trípode del Puesto\", ¿qué elemento define las obligaciones y el nivel de compromiso (por ejemplo, \"garantizar la satisfacción del cliente\")?",
+            options=[
+                "A) Las Tareas",
+                "B) Las Competencias",
+                "C) Las Responsabilidades",
+                "D) Los Riesgos Laborales"
+            ],
+            index=None
+        )
+
+        q3_adp = st.radio(
+            "3. En el ámbito de la Salud y Seguridad Laboral, el ADP es fundamental porque permite:",
+            options=[
+                "A) Identificar riesgos físicos, ergonómicos y psicosociales para adaptar el trabajo a la persona",
+                "B) Reducir el sueldo si el puesto es peligroso",
+                "C) Evitar el pago de cotizaciones a la Seguridad Social",
+                "D) Contratar a trabajadores sin experiencia médica"
+            ],
+            index=None
+        )
+
+        q4_adp = st.radio(
+            "4. Según el Análisis Operativo, si documentamos que el pintor \"realiza la mezcla de colores utilizando una máquina específica y un ordenador\", ¿a qué pregunta estamos respondiendo?",
+            options=[
+                "A) ¿Qué hace?",
+                "B) ¿Por qué lo hace?",
+                "C) ¿Cómo lo hace?",
+                "D) ¿Quién lo hace?"
+            ],
+            index=None
+        )
+
+        q5_adp = st.radio(
+            "5. La pregunta \"¿Quién lo hace?\" en las 5 cuestiones básicas del ADP se refiere a:",
+            options=[
+                "A) El nombre del trabajador actual",
+                "B) El departamento al que pertenece",
+                "C) Los recursos materiales empleados",
+                "D) Los requisitos humanos en términos de formación y aptitudes"
+            ],
+            index=None
+        )
+
+        submitted_adp = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted_adp:
+        st.subheader("Resultados")
+
+        # Pregunta 1
+        if q1_adp and q1_adp.startswith("B"):
+            st.success("Pregunta 1: Correcto. El ADP es una técnica que analiza la naturaleza del trabajo y sus requisitos, no a la persona concreta que lo está desempeñando.")
+        else:
+            st.error("Pregunta 1: Incorrecto. El ADP es una técnica que analiza la naturaleza del trabajo y sus requisitos, no a la persona concreta que lo está desempeñando.")
+
+        # Pregunta 2
+        if q2_adp and q2_adp.startswith("C"):
+            st.success("Pregunta 2: Correcto. Las responsabilidades son las obligaciones asociadas al puesto que determinan el nivel de compromiso y la toma de decisiones.")
+        else:
+            st.error("Pregunta 2: Incorrecto. Las responsabilidades son las obligaciones asociadas al puesto que determinan el nivel de compromiso y la toma de decisiones.")
+
+        # Pregunta 3
+        if q3_adp and q3_adp.startswith("A"):
+            st.success("Pregunta 3: Correcto. Al analizar detalladamente las tareas y el entorno, el ADP detecta los riesgos reales, permitiendo diseñar medidas preventivas eficaces.")
+        else:
+            st.error("Pregunta 3: Incorrecto. Al analizar detalladamente las tareas y el entorno, el ADP detecta los riesgos reales, permitiendo diseñar medidas preventivas eficaces.")
+
+        # Pregunta 4
+        if q4_adp and q4_adp.startswith("C"):
+            st.success("Pregunta 4: Correcto. La pregunta '¿Cómo lo hace?' describe los procedimientos, instrucciones y métodos técnicos utilizados en el trabajo.")
+        else:
+            st.error("Pregunta 4: Incorrecto. La pregunta '¿Cómo lo hace?' describe los procedimientos, instrucciones y métodos técnicos utilizados en el trabajo.")
+
+        # Pregunta 5
+        if q5_adp and q5_adp.startswith("D"):
+            st.success("Pregunta 5: Correcto. El 'Quién' se centra en definir el perfil ideal, detallando las capacidades, formación técnica (ej. FP Automoción) y habilidades necesarias para el cargo.")
+        else:
+            st.error("Pregunta 5: Incorrecto. El 'Quién' se centra en definir el perfil ideal, detallando las capacidades, formación técnica (ej. FP Automoción) y habilidades necesarias para el cargo.")
+
 elif seccion == "3. Técnicas de Recogida":
     st.header("3. Técnicas de Recogida")
     st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
