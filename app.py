@@ -125,8 +125,33 @@ Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
             st.error("Pregunta 5: Incorrecto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
 
 elif seccion == "2. El ADP":
-    st.header("2. El ADP")
-    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
+    st.title("2. El ADP: Análisis y Descripción de Puestos")
+
+    st.header("2.1. Fundamentos y Evolución")
+    st.write("El ADP es el eje de la organización científica del trabajo. Ha evolucionado desde la simple clasificación de tareas (Taylorismo) hasta ser un instrumento estratégico de gestión por competencias.")
+    st.info("🎯 **Enfoque:** Se analiza el trabajo en sí mismo, no a la persona que lo desempeña.")
+
+    st.header("2.2. El Trípode del Puesto")
+    st.write("Todo puesto se define por la interacción de tres elementos:")
+    with st.container():
+        st.markdown("🛠️ **Tareas:** Qué acciones realiza el trabajador (ej. el pintor lija y prepara la superficie).")
+        st.markdown("⚖️ **Responsabilidades:** Compromisos y toma de decisiones (ej. asegurar la satisfacción del cliente).")
+        st.markdown("🧠 **Competencias:** Conocimientos y habilidades necesarias (ej. formación técnica en automoción).")
+
+    st.header("2.3. Utilidad Estratégica y Salud Laboral")
+    st.write("El ADP no es solo \"papeleo\", es la base para:")
+    with st.container():
+        st.info("✅ **Selección y Formación:** Define el perfil ideal y detecta qué formación falta.")
+        st.info("🛡️ **Prevención de Riesgos:** Identifica peligros ergonómicos, físicos y psicosociales para adaptar el puesto al trabajador.")
+
+    st.header("2.4. El Análisis Operativo (Las 5 Preguntas)")
+    st.write("Para describir un puesto con rigor, debemos responder:")
+    with st.container():
+        st.markdown("🔹 **¿Qué hace?** (Tareas y funciones)")
+        st.markdown("🔹 **¿Cómo lo hace?** (Métodos y procedimientos)")
+        st.markdown("🔹 **¿Con qué lo hace?** (Herramientas y maquinaria)")
+        st.markdown("🔹 **¿Por qué lo hace?** (Misión y finalidad)")
+        st.markdown("🔹 **¿Quién lo hace?** (Requisitos y aptitudes humanas)")
 
 elif seccion == "3. Técnicas de Recogida":
     st.header("3. Técnicas de Recogida")
