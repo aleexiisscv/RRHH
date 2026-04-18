@@ -11,7 +11,7 @@ st.set_page_config(
 st.sidebar.title("Navegación")
 seccion = st.sidebar.radio(
     "Selecciona una sección:",
-    ["1. El Reclutamiento", "2. El ADP", "3. Técnicas de Recogida"]
+    ["1. El Reclutamiento", "2. El ADP", "3. Técnicas de Recogida", "4. Metodología y Estrategia"]
 )
 
 if seccion == "1. El Reclutamiento":
@@ -251,3 +251,131 @@ elif seccion == "2. El ADP":
 elif seccion == "3. Técnicas de Recogida":
     st.header("3. Técnicas de Recogida")
     st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
+
+elif seccion == "4. Metodología y Estrategia":
+    st.title("4. Metodología y Estrategia")
+
+    st.header("4.1. Importancia Estratégica del ADP")
+    st.write("El ADP es la \"pieza maestra\" de la organización.")
+    with st.container():
+        st.info("🎯 **Selección:** Crea el profesiograma (perfil ideal).")
+        st.info("📚 **Formación:** Detecta \"lagunas\" de conocimiento comparando el perfil real con la exigencia del puesto.")
+        st.info("⚖️ **Responsabilidades:** Delimita autoridad y evita la ambigüedad de rol.")
+
+    st.header("4.2. Salud Laboral y Prevención")
+    st.write("El ADP es la base técnica para la seguridad del trabajador:")
+    with st.container():
+        st.markdown("- 🛡️ **Seguridad e Higiene:** Control de equipos y agentes químicos/físicos.")
+        st.markdown("- 🧘 **Ergonomía y Psicosociología:** Control de fatiga, estrés y posturas.")
+        st.markdown("- 🩺 **Medicina del Trabajo:** Vigilancia de la salud según el riesgo del puesto.")
+        st.success("✅ **Acción Preventiva:** \"Adaptar el trabajo a la persona\".")
+
+    st.header("4.3. Análisis Operativo: Las 5 Cuestiones")
+    st.write("Todo análisis debe responder con rigor a:")
+    with st.container():
+        st.markdown("🔹 **¿Qué hace?** (Tareas y tiempo).")
+        st.markdown("🔹 **¿Cómo lo hace?** (Métodos y riesgos).")
+        st.markdown("🔹 **¿Con qué lo hace?** (Recursos y herramientas).")
+        st.markdown("🔹 **¿Por qué lo hace?** (Misión y objetivo).")
+        st.markdown("🔹 **¿Quién lo hace?** (Aptitudes y formación).")
+
+    st.header("4.4. Participantes y Selección de Puestos")
+    with st.container():
+        st.markdown("👥 **Actores:** El Analista, el Titular del puesto, el Superior Jerárquico y RR.HH.")
+        st.info("📊 **Criterio de Selección:** Representatividad. No se analiza todo, sino puestos \"tipo\" significativos.")
+        st.markdown("🔍 **Identificación:** Se puede validar mediante registros de RR.HH., consulta a jefes, encuestas a empleados o investigación exhaustiva.")
+
+    st.markdown("---")
+    st.header("Autoevaluación")
+    st.write("Pon a prueba tus conocimientos sobre Metodología y Estrategia del ADP.")
+
+    with st.form("form_metodologia"):
+        q1_met = st.radio(
+            "1. A nivel estratégico, ¿cómo se vincula el Análisis de Puestos (ADP) con los planes de Formación de la empresa?",
+            options=[
+                "A) Permite reducir el salario de los empleados menos formados",
+                "B) Detecta \"lagunas\" de conocimiento al comparar el perfil real del trabajador con las exigencias del puesto",
+                "C) Sustituye por completo a la evaluación del desempeño",
+                "D) Sirve únicamente para cumplir requisitos legales"
+            ],
+            index=None
+        )
+
+        q2_met = st.radio(
+            "2. Según los Principios de la Acción Preventiva en Salud Laboral, el enfoque fundamental a la hora de diseñar un puesto de trabajo es:",
+            options=[
+                "A) Adaptar el trabajo a la persona",
+                "B) Adaptar a la persona al trabajo cueste lo que cueste",
+                "C) Pagar pluses de peligrosidad en lugar de modificar las máquinas",
+                "D) Delegar la responsabilidad en las Mutuas externas"
+            ],
+            index=None
+        )
+
+        q3_met = st.radio(
+            "3. Si en el análisis de un puesto detectamos riesgos derivados de \"posturas forzadas, fatiga mental y estrés\", ¿a qué especialidad preventiva estamos nutriendo de datos?",
+            options=[
+                "A) Seguridad en el Trabajo",
+                "B) Higiene Ocupacional",
+                "C) Medicina del Trabajo",
+                "D) Psicosociología y Ergonomía"
+            ],
+            index=None
+        )
+
+        q4_met = st.radio(
+            "4. En el Análisis Operativo, si el analista documenta las \"aptitudes físicas, conocimientos técnicos y capacidades mentales necesarias\" para ser pintor, ¿a qué pregunta básica está respondiendo?",
+            options=[
+                "A) ¿Qué hace?",
+                "B) ¿Cómo lo hace?",
+                "C) ¿Con qué lo hace?",
+                "D) ¿Quién lo hace?"
+            ],
+            index=None
+        )
+
+        q5_met = st.radio(
+            "5. En organizaciones muy grandes donde es inviable analizar puesto por puesto, ¿cuál es el criterio principal para seleccionar los puestos que se van a estudiar?",
+            options=[
+                "A) Criterio de aleatoriedad",
+                "B) Criterio de representatividad (elegir puestos \"tipo\" significativos)",
+                "C) Analizar solo los puestos directivos",
+                "D) Analizar los puestos que más quejas generan"
+            ],
+            index=None
+        )
+
+        submitted_met = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted_met:
+        st.subheader("Resultados")
+
+        # Pregunta 1
+        if q1_met and q1_met.startswith("B"):
+            st.success("Pregunta 1: Correcto. El ADP define lo que el puesto exige, y al cruzarlo con lo que el trabajador sabe, identificamos exactamente en qué debemos capacitarle de forma rentable.")
+        else:
+            st.error("Pregunta 1: Incorrecto. El ADP define lo que el puesto exige, y al cruzarlo con lo que el trabajador sabe, identificamos exactamente en qué debemos capacitarle de forma rentable.")
+
+        # Pregunta 2
+        if q2_met and q2_met.startswith("A"):
+            st.success("Pregunta 2: Correcto. La Ley exige que, en la medida de lo posible, el entorno, los equipos y el diseño del puesto se adapten a la persona para evitar o minimizar los riesgos.")
+        else:
+            st.error("Pregunta 2: Incorrecto. La Ley exige que, en la medida de lo posible, el entorno, los equipos y el diseño del puesto se adapten a la persona para evitar o minimizar los riesgos.")
+
+        # Pregunta 3
+        if q3_met and q3_met.startswith("D"):
+            st.success("Pregunta 3: Correcto. La ergonomía trata la carga física y las posturas, mientras que la psicosociología aborda factores organizativos como el estrés o la fatiga mental.")
+        else:
+            st.error("Pregunta 3: Incorrecto. La ergonomía trata la carga física y las posturas, mientras que la psicosociología aborda factores organizativos como el estrés o la fatiga mental.")
+
+        # Pregunta 4
+        if q4_met and q4_met.startswith("D"):
+            st.success("Pregunta 4: Correcto. La pregunta '¿Quién lo hace?' se centra exclusivamente en los requisitos humanos y el perfil ideal que debe tener la persona que ocupe el cargo.")
+        else:
+            st.error("Pregunta 4: Incorrecto. La pregunta '¿Quién lo hace?' se centra exclusivamente en los requisitos humanos y el perfil ideal que debe tener la persona que ocupe el cargo.")
+
+        # Pregunta 5
+        if q5_met and q5_met.startswith("B"):
+            st.success("Pregunta 5: Correcto. Se selecciona un puesto que represente a muchos otros idénticos (por ejemplo, analizar a un pintor para establecer el estándar de los 20 pintores de la plantilla).")
+        else:
+            st.error("Pregunta 5: Incorrecto. Se selecciona un puesto que represente a muchos otros idénticos (por ejemplo, analizar a un pintor para establecer el estándar de los 20 pintores de la plantilla).")
