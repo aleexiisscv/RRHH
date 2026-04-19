@@ -11,7 +11,7 @@ st.set_page_config(
 st.sidebar.title("Navegación")
 seccion = st.sidebar.radio(
     "Selecciona una sección:",
-    ["1. El Reclutamiento", "2. El ADP", "3. Técnicas de Recogida", "4. Metodología y Estrategia"]
+    ["1. El Reclutamiento", "2. El ADP", "3. Dimensión Económica", "4. Técnicas de Recogida", "5. Metodología y Estrategia"]
 )
 
 if seccion == "1. El Reclutamiento":
@@ -125,33 +125,21 @@ Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
             st.error("Pregunta 5: Incorrecto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
 
 elif seccion == "2. El ADP":
-    st.title("2. El ADP: Análisis y Descripción de Puestos")
+    st.title("2. EL ADP: Análisis y Descripción de Puestos")
 
-    st.header("2.1. Fundamentos y Evolución")
-    st.write("El ADP es el eje de la organización científica del trabajo. Ha evolucionado desde la simple clasificación de tareas (Taylorismo) hasta ser un instrumento estratégico de gestión por competencias.")
-    st.info("🎯 **Enfoque:** Se analiza el trabajo en sí mismo, no a la persona que lo desempeña.")
+    st.header("2.1. Contexto Histórico y Evolución")
+    st.write("El origen del ADP se remonta a la organización científica del trabajo (fines del s. XIX). Autores como Frederick Taylor introdujeron la idea de desglosar el trabajo en tareas cuantificables para mejorar la eficiencia. Posteriormente, la escuela de las relaciones humanas integró el factor humano. Además, los periodos de guerra (I y II Guerra Mundial) obligaron a desarrollar métodos sistemáticos de estandarización de puestos por la escasez de recursos. Hoy en día, el ADP ha pasado de ser una herramienta puramente administrativa a un instrumento estratégico central en RR.HH.")
 
-    st.header("2.2. El Trípode del Puesto")
-    st.write("Todo puesto se define por la interacción de tres elementos:")
+    st.header("2.2. Definiciones Clave")
+    st.write("El ADP es un proceso sistemático de recogida, análisis y organización de información relativa a un puesto de trabajo con el objetivo de identificar sus funciones, responsabilidades y requisitos.")
+    st.info("Es una técnica centrada exclusivamente en el puesto y no en la persona. Se analiza el trabajo en sí mismo, independientemente de quién lo ocupe. Su resultado principal es la \"descripción del puesto\".")
+
+    st.header("2.3. El Trípode del Puesto")
+    st.write("El análisis se apoya en tres pilares fundamentales que estructuran la información:")
     with st.container():
-        st.markdown("🛠️ **Tareas:** Qué acciones realiza el trabajador (ej. el pintor lija y prepara la superficie).")
-        st.markdown("⚖️ **Responsabilidades:** Compromisos y toma de decisiones (ej. asegurar la satisfacción del cliente).")
-        st.markdown("🧠 **Competencias:** Conocimientos y habilidades necesarias (ej. formación técnica en automoción).")
-
-    st.header("2.3. Utilidad Estratégica y Salud Laboral")
-    st.write("El ADP no es solo \"papeleo\", es la base para:")
-    with st.container():
-        st.info("✅ **Selección y Formación:** Define el perfil ideal y detecta qué formación falta.")
-        st.info("🛡️ **Prevención de Riesgos:** Identifica peligros ergonómicos, físicos y psicosociales para adaptar el puesto al trabajador.")
-
-    st.header("2.4. El Análisis Operativo (Las 5 Preguntas)")
-    st.write("Para describir un puesto con rigor, debemos responder:")
-    with st.container():
-        st.markdown("🔹 **¿Qué hace?** (Tareas y funciones)")
-        st.markdown("🔹 **¿Cómo lo hace?** (Métodos y procedimientos)")
-        st.markdown("🔹 **¿Con qué lo hace?** (Herramientas y maquinaria)")
-        st.markdown("🔹 **¿Por qué lo hace?** (Misión y finalidad)")
-        st.markdown("🔹 **¿Quién lo hace?** (Requisitos y aptitudes humanas)")
+        st.markdown("* **Tareas:** Conjunto de actividades concretas, observables y medibles. Se debe identificar su frecuencia, dificultad y peso en la jornada.")
+        st.markdown("* **Responsabilidades:** Obligaciones asociadas al puesto que determinan el nivel de compromiso, autonomía y toma de decisiones (grado de autoridad).")
+        st.markdown("* **Competencias:** Conjunto de conocimientos (saber), habilidades (saber hacer) y actitudes (transversales) necesarias para ejecutar las tareas.")
 
     st.markdown("---")
     st.header("Autoevaluación")
@@ -159,56 +147,34 @@ elif seccion == "2. El ADP":
 
     with st.form("form_adp"):
         q1_adp = st.radio(
-            "1. El Análisis y Descripción de Puestos (ADP) se caracteriza principalmente por centrarse en:",
+            "1. ¿Qué factores históricos impulsaron el desarrollo de métodos sistemáticos de estandarización de puestos?",
             options=[
-                "A) La persona que ocupa el cargo actualmente",
-                "B) El puesto de trabajo en sí mismo independientemente de quién lo ocupe",
-                "C) El cálculo de las horas extras",
-                "D) La evaluación del desempeño del empleado"
+                "A) La necesidad de organizar la mano de obra durante los periodos de las guerras mundiales",
+                "B) La invención de la computadora",
+                "C) Las demandas sindicales a finales del s. XIX",
+                "D) El auge de las redes sociales corporativas"
             ],
             index=None
         )
 
         q2_adp = st.radio(
-            "2. Dentro del \"Trípode del Puesto\", ¿qué elemento define las obligaciones y el nivel de compromiso (por ejemplo, \"garantizar la satisfacción del cliente\")?",
+            "2. ¿En qué se centra principalmente la técnica del ADP?",
             options=[
-                "A) Las Tareas",
-                "B) Las Competencias",
-                "C) Las Responsabilidades",
-                "D) Los Riesgos Laborales"
+                "A) En la motivación de la persona que ocupa el cargo",
+                "B) Exclusivamente en el puesto de trabajo, independientemente de la persona que lo ocupe",
+                "C) En calcular las horas extras del departamento",
+                "D) En organizar eventos de la empresa"
             ],
             index=None
         )
 
         q3_adp = st.radio(
-            "3. En el ámbito de la Salud y Seguridad Laboral, el ADP es fundamental porque permite:",
+            "3. Dentro del trípode del puesto, ¿qué elemento define el nivel de autonomía y la toma de decisiones?",
             options=[
-                "A) Identificar riesgos físicos, ergonómicos y psicosociales para adaptar el trabajo a la persona",
-                "B) Reducir el sueldo si el puesto es peligroso",
-                "C) Evitar el pago de cotizaciones a la Seguridad Social",
-                "D) Contratar a trabajadores sin experiencia médica"
-            ],
-            index=None
-        )
-
-        q4_adp = st.radio(
-            "4. Según el Análisis Operativo, si documentamos que el pintor \"realiza la mezcla de colores utilizando una máquina específica y un ordenador\", ¿a qué pregunta estamos respondiendo?",
-            options=[
-                "A) ¿Qué hace?",
-                "B) ¿Por qué lo hace?",
-                "C) ¿Cómo lo hace?",
-                "D) ¿Quién lo hace?"
-            ],
-            index=None
-        )
-
-        q5_adp = st.radio(
-            "5. La pregunta \"¿Quién lo hace?\" en las 5 cuestiones básicas del ADP se refiere a:",
-            options=[
-                "A) El nombre del trabajador actual",
-                "B) El departamento al que pertenece",
-                "C) Los recursos materiales empleados",
-                "D) Los requisitos humanos en términos de formación y aptitudes"
+                "A) Las tareas",
+                "B) Las competencias",
+                "C) Las responsabilidades",
+                "D) La experiencia previa"
             ],
             index=None
         )
@@ -219,50 +185,42 @@ elif seccion == "2. El ADP":
         st.subheader("Resultados")
 
         # Pregunta 1
-        if q1_adp and q1_adp.startswith("B"):
-            st.success("Pregunta 1: Correcto. El ADP es una técnica que analiza la naturaleza del trabajo y sus requisitos, no a la persona concreta que lo está desempeñando.")
+        if q1_adp and q1_adp.startswith("A"):
+            st.success("Pregunta 1: Correcto. La necesidad de organizar la mano de obra durante los periodos de las guerras mundiales.")
         else:
-            st.error("Pregunta 1: Incorrecto. El ADP es una técnica que analiza la naturaleza del trabajo y sus requisitos, no a la persona concreta que lo está desempeñando.")
+            st.error("Pregunta 1: Incorrecto. Relee la parte de las guerras mundiales, donde la escasez exigió obligadamente la organización.")
 
         # Pregunta 2
-        if q2_adp and q2_adp.startswith("C"):
-            st.success("Pregunta 2: Correcto. Las responsabilidades son las obligaciones asociadas al puesto que determinan el nivel de compromiso y la toma de decisiones.")
+        if q2_adp and q2_adp.startswith("B"):
+            st.success("Pregunta 2: Correcto. Exclusivamente en el puesto de trabajo, independientemente de la persona que lo ocupe.")
         else:
-            st.error("Pregunta 2: Incorrecto. Las responsabilidades son las obligaciones asociadas al puesto que determinan el nivel de compromiso y la toma de decisiones.")
+            st.error("Pregunta 2: Incorrecto. El ADP se centra de forma exclusiva en el puesto de trabajo.")
 
         # Pregunta 3
-        if q3_adp and q3_adp.startswith("A"):
-            st.success("Pregunta 3: Correcto. Al analizar detalladamente las tareas y el entorno, el ADP detecta los riesgos reales, permitiendo diseñar medidas preventivas eficaces.")
+        if q3_adp and q3_adp.startswith("C"):
+            st.success("Pregunta 3: Correcto. Las responsabilidades definen el grado de autonomía para tomar decisiones.")
         else:
-            st.error("Pregunta 3: Incorrecto. Al analizar detalladamente las tareas y el entorno, el ADP detecta los riesgos reales, permitiendo diseñar medidas preventivas eficaces.")
+            st.error("Pregunta 3: Incorrecto. Las responsabilidades son la respuesta adecuada referida al nivel de compromiso.")
 
-        # Pregunta 4
-        if q4_adp and q4_adp.startswith("C"):
-            st.success("Pregunta 4: Correcto. La pregunta '¿Cómo lo hace?' describe los procedimientos, instrucciones y métodos técnicos utilizados en el trabajo.")
-        else:
-            st.error("Pregunta 4: Incorrecto. La pregunta '¿Cómo lo hace?' describe los procedimientos, instrucciones y métodos técnicos utilizados en el trabajo.")
-
-        # Pregunta 5
-        if q5_adp and q5_adp.startswith("D"):
-            st.success("Pregunta 5: Correcto. El 'Quién' se centra en definir el perfil ideal, detallando las capacidades, formación técnica (ej. FP Automoción) y habilidades necesarias para el cargo.")
-        else:
-            st.error("Pregunta 5: Incorrecto. El 'Quién' se centra en definir el perfil ideal, detallando las capacidades, formación técnica (ej. FP Automoción) y habilidades necesarias para el cargo.")
-
-elif seccion == "3. Técnicas de Recogida":
-    st.header("3. Técnicas de Recogida")
+elif seccion == "3. Dimensión Económica":
+    st.title("3. Dimensión Económica")
     st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
 
-elif seccion == "4. Metodología y Estrategia":
-    st.title("4. Metodología y Estrategia")
+elif seccion == "4. Técnicas de Recogida":
+    st.title("4. Técnicas de Recogida")
+    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
 
-    st.header("4.1. Importancia Estratégica del ADP")
+elif seccion == "5. Metodología y Estrategia":
+    st.title("5. Metodología y Estrategia")
+
+    st.header("5.1. Importancia Estratégica del ADP")
     st.write("El ADP es la \"pieza maestra\" de la organización.")
     with st.container():
         st.info("🎯 **Selección:** Crea el profesiograma (perfil ideal).")
         st.info("📚 **Formación:** Detecta \"lagunas\" de conocimiento comparando el perfil real con la exigencia del puesto.")
         st.info("⚖️ **Responsabilidades:** Delimita autoridad y evita la ambigüedad de rol.")
 
-    st.header("4.2. Salud Laboral y Prevención")
+    st.header("5.2. Salud Laboral y Prevención")
     st.write("El ADP es la base técnica para la seguridad del trabajador:")
     with st.container():
         st.markdown("- 🛡️ **Seguridad e Higiene:** Control de equipos y agentes químicos/físicos.")
@@ -270,7 +228,7 @@ elif seccion == "4. Metodología y Estrategia":
         st.markdown("- 🩺 **Medicina del Trabajo:** Vigilancia de la salud según el riesgo del puesto.")
         st.success("✅ **Acción Preventiva:** \"Adaptar el trabajo a la persona\".")
 
-    st.header("4.3. Análisis Operativo: Las 5 Cuestiones")
+    st.header("5.3. Análisis Operativo: Las 5 Cuestiones")
     st.write("Todo análisis debe responder con rigor a:")
     with st.container():
         st.markdown("🔹 **¿Qué hace?** (Tareas y tiempo).")
@@ -279,7 +237,7 @@ elif seccion == "4. Metodología y Estrategia":
         st.markdown("🔹 **¿Por qué lo hace?** (Misión y objetivo).")
         st.markdown("🔹 **¿Quién lo hace?** (Aptitudes y formación).")
 
-    st.header("4.4. Participantes y Selección de Puestos")
+    st.header("5.4. Participantes y Selección de Puestos")
     with st.container():
         st.markdown("👥 **Actores:** El Analista, el Titular del puesto, el Superior Jerárquico y RR.HH.")
         st.info("📊 **Criterio de Selección:** Representatividad. No se analiza todo, sino puestos \"tipo\" significativos.")
