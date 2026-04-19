@@ -320,8 +320,122 @@ elif seccion == "3. Dimensión Económica":
             st.error("Pregunta 4: Incorrecto. Tiene que ver con las hipótesis y escenarios presupuestarios en hojas de cálculo.")
 
 elif seccion == "4. Técnicas de Recogida":
-    st.title("4. Técnicas de Recogida")
-    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
+    st.title("4. Técnicas de Recogida de Información")
+
+    st.write("Para analizar y describir un puesto de trabajo (ADP), existen múltiples métodos que van desde cuestionarios abiertos hasta la observación minuciosa. En la práctica empresarial, estas técnicas se agrupan en tres grandes bloques, además de un enfoque integrador.")
+
+    st.header("4.1. Observación Directa")
+    st.write("Consiste en que el analista observa y registra las conductas del trabajador durante la ejecución de sus tareas, sin intervenir (observación no participante).")
+    st.markdown("* **Ejemplo:** Observar a un pintor de carrocería lijando y preparando un vehículo, anotando sus movimientos físicos y tiempos.")
+    st.markdown("* **Ventajas:** Máxima objetividad (datos empíricos comprobables in situ) y profundidad cualitativa sobre el entorno físico.")
+    st.markdown("* **Inconvenientes:** El \"Efecto Hawthorne\" (el trabajador altera su conducta al sentirse observado), la imposibilidad de registrar procesos mentales o toma de decisiones, y el alto coste en tiempo presencial.")
+
+    st.header("4.2. Métodos de Interacción")
+    st.write("Se basan en la comunicación verbal para indagar en aquello que no se ve a simple vista.")
+    
+    with st.expander("1. Entrevista Individual"):
+        st.write("Se conversa directamente con el ocupante del puesto. Permite un trato personalizado y descubrir funciones no evidentes. Sin embargo, el trabajador puede sesgar la información (inflando sus tareas por ego, o minimizándolas por miedo a que le den más trabajo).")
+    
+    with st.expander("2. Entrevista de Incidentes Críticos"):
+        st.write("Se pide al trabajador que describa situaciones extremas del pasado (grandes éxitos o fracasos). Es la herramienta más potente para identificar *competencias clave* (ej. tolerancia a la frustración), aunque ofrece una visión parcial y deja fuera la rutina diaria.")
+    
+    with st.expander("3. Reunión de Paneles de Expertos"):
+        st.write("Se reúne al trabajador, su supervisor y el analista (que actúa de moderador) para consensuar la información. Genera gran sinergia y es eficiente, pero pueden surgir \"dinámicas de poder\" que inhiban al empleado de hablar libremente ante su jefe.")
+
+    st.header("4.3. Métodos de Registro")
+    st.write("La responsabilidad de recopilar los datos recae en el propio trabajador o en su supervisor.")
+    
+    with st.expander("1. Cuestionarios y Listas de Chequeo"):
+        st.write("Documentos estructurados (escalas, preguntas cerradas). Son rápidos, económicos y permiten el análisis estadístico. Su problema principal: si son genéricos no se adaptan a la jerga de la empresa, y si son a medida, requieren conocimientos avanzados de psicometría para diseñarlos bien.")
+    
+    with st.expander("2. Diario de Trabajo"):
+        st.write("El trabajador anota sus actividades en intervalos de tiempo preestablecidos. Muy útil para cuantificar tiempos y detectar cuellos de botella. Sus grandes retos son la falta de homogeneidad (unos escriben mucho, otros poco), la posible falta de sinceridad y la fricción que genera interrumpir el trabajo físico para escribir.")
+
+    st.header("4.4. La necesidad de un Enfoque Mixto: La Triangulación")
+    st.success("""
+**Triangulación metodológica:**
+Ninguna técnica es perfecta por sí sola. La observación capta lo físico pero ignora lo mental; la entrevista profundiza pero tiene sesgos; los cuestionarios son masivos pero pierden detalle. 
+
+Por ello, la práctica moderna exige combinar dos o más herramientas (ej. cuestionario previo + observación in situ + entrevista final de validación) para que las fortalezas de una compensen las debilidades de la otra, garantizando un ADP riguroso.
+""")
+
+    st.markdown("---")
+    st.header("Autoevaluación")
+    st.write("Pon a prueba tus conocimientos sobre las Técnicas de Recogida.")
+
+    with st.form("quiz_tecnicas"):
+        q1_tec = st.radio(
+            "1. Al utilizar la técnica de \"Observación Directa\", ¿cuál es su principal limitación cognitiva?",
+            options=[
+                "A) El elevado coste de los cuestionarios impresos.",
+                "B) No permite registrar ni analizar procesos mentales, emocionales o de toma de decisiones complejas.",
+                "C) Que los analistas suelen aburrirse.",
+                "D) La dificultad de almacenar la información obtenida."
+            ],
+            index=None
+        )
+
+        q2_tec = st.radio(
+            "2. ¿Qué método es el más potente para diseñar perfiles basados en comportamientos y competencias, pidiendo al trabajador que relate situaciones de éxito o fracaso?",
+            options=[
+                "A) Observación Participante.",
+                "B) Entrevista de Incidentes Críticos.",
+                "C) Cuestionario cerrado estándar.",
+                "D) Reunión de Paneles de Expertos."
+            ],
+            index=None
+        )
+
+        q3_tec = st.radio(
+            "3. ¿Cuál es uno de los principales problemas operativos de utilizar un \"Diario de Trabajo\" en puestos mecánicos o de cadena de montaje?",
+            options=[
+                "A) Genera fricción e incomodidad al obligar al trabajador a interrumpir su labor física repetidamente para anotar.",
+                "B) Es ilegal pedir informes escritos en las cadenas de montaje.",
+                "C) Se requiere a un notario que valide todo lo escrito.",
+                "D) Fomenta demasiado la creatividad literaria."
+            ],
+            index=None
+        )
+
+        q4_tec = st.radio(
+            "4. ¿En qué consiste la \"Triangulación\" en el contexto del ADP?",
+            options=[
+                "A) En calcular el área del centro de trabajo físico.",
+                "B) En basarse exclusivamente en las opiniones del empleado, su jefe y el sindicato.",
+                "C) En combinar varios métodos de recogida de información para que las fortalezas de unos compensen las debilidades de los otros.",
+                "D) En establecer tres niveles salariales por puesto."
+            ],
+            index=None
+        )
+
+        submitted_tec = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted_tec:
+        st.subheader("Resultados")
+
+        # Pregunta 1
+        if q1_tec and q1_tec.startswith("B"):
+            st.success("Pregunta 1: Correcto. La observación mide muy bien conductas físicas pero no el factor racional y emocional.")
+        else:
+            st.error("Pregunta 1: Incorrecto. Recuerda que la observación solo permite el análisis físico y visual, sin registrar procesos internos como decisiones o razonamientos.")
+
+        # Pregunta 2
+        if q2_tec and q2_tec.startswith("B"):
+            st.success("Pregunta 2: Correcto. La entrevista de incidentes críticos identifica las competencias clave mediante situaciones pasadas del trabajador.")
+        else:
+            st.error("Pregunta 2: Incorrecto. Es un tipo de entorno de entrevista centrado específicamente en el pasado empírico para demostrar una competencia.")
+
+        # Pregunta 3
+        if q3_tec and q3_tec.startswith("A"):
+            st.success("Pregunta 3: Correcto. Supone un gran freno estar frenando operaciones de esfuerzo físico y precisión solo para escribir un registro temporal.")
+        else:
+            st.error("Pregunta 3: Incorrecto. Considera cómo anotar las cosas afecta la fluidez o ritmo de un trabajador que use sus manos en cadena.")
+
+        # Pregunta 4
+        if q4_tec and q4_tec.startswith("C"):
+            st.success("Pregunta 4: Correcto. La triangulación asegura obtener lo mejor de diferentes métodos, combinándolos.")
+        else:
+            st.error("Pregunta 4: Incorrecto. La triangulación aborda qué herramientas usar como técnica cruzada para compensar fallos.")
 
 elif seccion == "5. Metodología y Estrategia":
     st.title("5. Metodología y Estrategia")
