@@ -438,94 +438,83 @@ Por ello, la práctica moderna exige combinar dos o más herramientas (ej. cuest
             st.error("Pregunta 4: Incorrecto. La triangulación aborda qué herramientas usar como técnica cruzada para compensar fallos.")
 
 elif seccion == "5. Metodología y Estrategia":
-    st.title("5. Metodología y Estrategia")
+    st.title("5. Metodología y Estrategia del ADP")
 
-    st.header("5.1. Importancia Estratégica del ADP")
-    st.write("El ADP es la \"pieza maestra\" de la organización.")
-    with st.container():
-        st.info("🎯 **Selección:** Crea el profesiograma (perfil ideal).")
-        st.info("📚 **Formación:** Detecta \"lagunas\" de conocimiento comparando el perfil real con la exigencia del puesto.")
-        st.info("⚖️ **Responsabilidades:** Delimita autoridad y evita la ambigüedad de rol.")
+    st.write("El Análisis y Descripción de Puestos no es un fin en sí mismo, sino la \"pieza maestra\" que alimenta todos los procesos estratégicos de la organización.")
 
-    st.header("5.2. Salud Laboral y Prevención")
-    st.write("El ADP es la base técnica para la seguridad del trabajador:")
-    with st.container():
-        st.markdown("- 🛡️ **Seguridad e Higiene:** Control de equipos y agentes químicos/físicos.")
-        st.markdown("- 🧘 **Ergonomía y Psicosociología:** Control de fatiga, estrés y posturas.")
-        st.markdown("- 🩺 **Medicina del Trabajo:** Vigilancia de la salud según el riesgo del puesto.")
-        st.success("✅ **Acción Preventiva:** \"Adaptar el trabajo a la persona\".")
+    st.header("5.1. Importancia Estratégica")
+    st.write("El ADP resuelve la desorientación interna al delimitar tareas y niveles de autoridad, impactando en:")
+    st.markdown("* **Vínculo con la Selección:** Define el \"perfil ideal\" o profesiograma, permitiendo un reclutamiento basado en exigencias reales y no en intuiciones.")
+    st.markdown("* **Vínculo con la Formación:** Al comparar el perfil real del trabajador con lo que el puesto exige, se detectan \"lagunas\" de conocimiento para invertir en formación de forma rentable.")
+    st.markdown("* **Determinación de Responsabilidades:** Reduce la incertidumbre y evita la \"ambigüedad de rol\", una de las mayores causas de conflicto interno.")
 
-    st.header("5.3. Análisis Operativo: Las 5 Cuestiones")
-    st.write("Todo análisis debe responder con rigor a:")
-    with st.container():
-        st.markdown("🔹 **¿Qué hace?** (Tareas y tiempo).")
-        st.markdown("🔹 **¿Cómo lo hace?** (Métodos y riesgos).")
-        st.markdown("🔹 **¿Con qué lo hace?** (Recursos y herramientas).")
-        st.markdown("🔹 **¿Por qué lo hace?** (Misión y objetivo).")
-        st.markdown("🔹 **¿Quién lo hace?** (Aptitudes y formación).")
+    st.header("5.2. Salud Laboral y Prevención de Riesgos")
+    st.write("El ADP es el instrumento técnico básico para las cuatro especialidades preventivas:")
+    st.markdown("1. **Seguridad en el Trabajo:** Identifica riesgos en máquinas y espacios.")
+    st.markdown("2. **Higiene Ocupacional:** Controla la exposición a agentes físicos, químicos o biológicos.")
+    st.markdown("3. **Ergonomía y Psicosociología:** Detecta riesgos por carga física, posturas, fatiga y estrés (aquí el ADP es crítico).")
+    st.markdown("4. **Medicina del Trabajo:** Proporciona datos para la vigilancia de la salud específica.")
+
+    st.success("**Principio Fundamental:** La gestión debe \"adaptar el trabajo a la persona\", especialmente en el diseño de puestos y elección de equipos.")
+
+    st.header("5.3. Análisis Operativo: Las 5 Cuestiones Básicas")
+    st.write("Un análisis de alta calidad debe responder con rigor a:")
+    st.markdown("1. **¿Qué hace?** (Tareas valoradas por importancia y tiempo).")
+    st.markdown("2. **¿Cómo lo hace?** (Métodos, instrucciones y riesgos asumidos).")
+    st.markdown("3. **¿Con qué lo hace?** (Máquinas, herramientas y materiales).")
+    st.markdown("4. **¿Por qué lo hace?** (Misión y finalidad dentro de la cadena de valor).")
+    st.markdown("5. **¿Quién lo hace?** (Requisitos humanos: aptitudes, formación y capacidades mentales).")
 
     st.header("5.4. Participantes y Selección de Puestos")
-    with st.container():
-        st.markdown("👥 **Actores:** El Analista, el Titular del puesto, el Superior Jerárquico y RR.HH.")
-        st.info("📊 **Criterio de Selección:** Representatividad. No se analiza todo, sino puestos \"tipo\" significativos.")
-        st.markdown("🔍 **Identificación:** Se puede validar mediante registros de RR.HH., consulta a jefes, encuestas a empleados o investigación exhaustiva.")
+    st.markdown("* **Participantes:** El Analista (experto técnico), el Titular (fuente primaria), el Responsable Jerárquico (validador) y RR.HH. (responsable global).")
+    st.markdown("* **Criterio de Selección:** En estructuras complejas se usa la **Representatividad**, analizando puestos \"tipo\".")
+    st.markdown("* **Métodos de Identificación:** Para saber qué puestos son únicos se puede: consultar registros de RR.HH., validar con jefes de área, preguntar a empleados o realizar una investigación exhaustiva (el método más científico y costoso).")
 
     st.markdown("---")
     st.header("Autoevaluación")
     st.write("Pon a prueba tus conocimientos sobre Metodología y Estrategia del ADP.")
 
-    with st.form("form_metodologia"):
+    with st.form("quiz_metodologia"):
         q1_met = st.radio(
-            "1. A nivel estratégico, ¿cómo se vincula el Análisis de Puestos (ADP) con los planes de Formación de la empresa?",
+            "1. ¿Cómo ayuda el ADP a que la inversión en formación de una empresa sea rentable?",
             options=[
-                "A) Permite reducir el salario de los empleados menos formados",
-                "B) Detecta \"lagunas\" de conocimiento al comparar el perfil real del trabajador con las exigencias del puesto",
-                "C) Sustituye por completo a la evaluación del desempeño",
-                "D) Sirve únicamente para cumplir requisitos legales"
+                "A) Reduciendo el salario durante el periodo de formación.",
+                "B) Permite detectar \"lagunas\" de conocimiento al comparar el perfil real del trabajador con las exigencias del puesto definidas en el ADP.",
+                "C) Obligando a los empleados a pagarse sus propios cursos.",
+                "D) Sustituyendo a los empleados menos formados por becarios."
             ],
             index=None
         )
 
         q2_met = st.radio(
-            "2. Según los Principios de la Acción Preventiva en Salud Laboral, el enfoque fundamental a la hora de diseñar un puesto de trabajo es:",
+            "2. Según la normativa de Salud Laboral, ¿cuál es el objetivo principal al diseñar un puesto?",
             options=[
-                "A) Adaptar el trabajo a la persona",
-                "B) Adaptar a la persona al trabajo cueste lo que cueste",
-                "C) Pagar pluses de peligrosidad en lugar de modificar las máquinas",
-                "D) Delegar la responsabilidad en las Mutuas externas"
+                "A) Adaptar el trabajo a la persona.",
+                "B) Adaptar a la persona al trabajo forzando su ergonomía.",
+                "C) Pagar un plus económico por los riesgos no evitados.",
+                "D) Conseguir la máxima producción independientemente de los riesgos."
             ],
             index=None
         )
 
         q3_met = st.radio(
-            "3. Si en el análisis de un puesto detectamos riesgos derivados de \"posturas forzadas, fatiga mental y estrés\", ¿a qué especialidad preventiva estamos nutriendo de datos?",
+            "3. En el Análisis Operativo, ¿a qué pregunta responde la descripción de las \"aptitudes físicas y conocimientos técnicos necesarios\"?",
             options=[
-                "A) Seguridad en el Trabajo",
-                "B) Higiene Ocupacional",
-                "C) Medicina del Trabajo",
-                "D) Psicosociología y Ergonomía"
+                "A) ¿Qué hace?",
+                "B) ¿Cómo lo hace?",
+                "C) ¿Quién lo hace?",
+                "D) ¿Con qué lo hace?"
             ],
             index=None
         )
 
         q4_met = st.radio(
-            "4. En el Análisis Operativo, si el analista documenta las \"aptitudes físicas, conocimientos técnicos y capacidades mentales necesarias\" para ser pintor, ¿a qué pregunta básica está respondiendo?",
+            "4. ¿Cuál es el criterio para seleccionar qué puestos estudiar en empresas donde es inviable analizarlos todos uno por uno?",
             options=[
-                "A) ¿Qué hace?",
-                "B) ¿Cómo lo hace?",
-                "C) ¿Con qué lo hace?",
-                "D) ¿Quién lo hace?"
-            ],
-            index=None
-        )
-
-        q5_met = st.radio(
-            "5. En organizaciones muy grandes donde es inviable analizar puesto por puesto, ¿cuál es el criterio principal para seleccionar los puestos que se van a estudiar?",
-            options=[
-                "A) Criterio de aleatoriedad",
-                "B) Criterio de representatividad (elegir puestos \"tipo\" significativos)",
-                "C) Analizar solo los puestos directivos",
-                "D) Analizar los puestos que más quejas generan"
+                "A) Criterio de azar.",
+                "B) Solo analizar los puestos directivos.",
+                "C) Criterio de Representatividad, seleccionando puestos \"tipo\" significativos.",
+                "D) Analizar solo los puestos de nueva creación."
             ],
             index=None
         )
@@ -537,30 +526,24 @@ elif seccion == "5. Metodología y Estrategia":
 
         # Pregunta 1
         if q1_met and q1_met.startswith("B"):
-            st.success("Pregunta 1: Correcto. El ADP define lo que el puesto exige, y al cruzarlo con lo que el trabajador sabe, identificamos exactamente en qué debemos capacitarle de forma rentable.")
+            st.success("Pregunta 1: Correcto. Al identificar el déficit formativo, se optimiza la inversión en cursos necesarios y enfocados al puesto directo.")
         else:
-            st.error("Pregunta 1: Incorrecto. El ADP define lo que el puesto exige, y al cruzarlo con lo que el trabajador sabe, identificamos exactamente en qué debemos capacitarle de forma rentable.")
+            st.error("Pregunta 1: Incorrecto. Revisa cómo el cruce entre los perfiles en el ADP indica dónde invertir de veras la formación.")
 
         # Pregunta 2
         if q2_met and q2_met.startswith("A"):
-            st.success("Pregunta 2: Correcto. La Ley exige que, en la medida de lo posible, el entorno, los equipos y el diseño del puesto se adapten a la persona para evitar o minimizar los riesgos.")
+            st.success("Pregunta 2: Correcto. La principal meta preventiva es conseguir adaptar los espacios o instrumentos a las personas, y no al revés (principio ético y legal de seguridad).")
         else:
-            st.error("Pregunta 2: Incorrecto. La Ley exige que, en la medida de lo posible, el entorno, los equipos y el diseño del puesto se adapten a la persona para evitar o minimizar los riesgos.")
+            st.error("Pregunta 2: Incorrecto. La principal meta nunca es forzar a la persona ni priorizar la compensación económica sobre la integridad.")
 
         # Pregunta 3
-        if q3_met and q3_met.startswith("D"):
-            st.success("Pregunta 3: Correcto. La ergonomía trata la carga física y las posturas, mientras que la psicosociología aborda factores organizativos como el estrés o la fatiga mental.")
+        if q3_met and q3_met.startswith("C"):
+            st.success("Pregunta 3: Correcto. '¿Quién lo hace?' indaga en el perfil y formación o facultades mentales requeridas por quien lo ejerce.")
         else:
-            st.error("Pregunta 3: Incorrecto. La ergonomía trata la carga física y las posturas, mientras que la psicosociología aborda factores organizativos como el estrés o la fatiga mental.")
+            st.error("Pregunta 3: Incorrecto. Comprueba la correspondencia en las '5 Cuestiones Básicas'. Aptitudes están en 'quién'.")
 
         # Pregunta 4
-        if q4_met and q4_met.startswith("D"):
-            st.success("Pregunta 4: Correcto. La pregunta '¿Quién lo hace?' se centra exclusivamente en los requisitos humanos y el perfil ideal que debe tener la persona que ocupe el cargo.")
+        if q4_met and q4_met.startswith("C"):
+            st.success("Pregunta 4: Correcto. Empleamos modelos representativos 'tipo' para conseguir muestras de ADP validadas por similitud.")
         else:
-            st.error("Pregunta 4: Incorrecto. La pregunta '¿Quién lo hace?' se centra exclusivamente en los requisitos humanos y el perfil ideal que debe tener la persona que ocupe el cargo.")
-
-        # Pregunta 5
-        if q5_met and q5_met.startswith("B"):
-            st.success("Pregunta 5: Correcto. Se selecciona un puesto que represente a muchos otros idénticos (por ejemplo, analizar a un pintor para establecer el estándar de los 20 pintores de la plantilla).")
-        else:
-            st.error("Pregunta 5: Incorrecto. Se selecciona un puesto que represente a muchos otros idénticos (por ejemplo, analizar a un pintor para establecer el estándar de los 20 pintores de la plantilla).")
+            st.error("Pregunta 4: Incorrecto. Considera cómo simplificaríamos para no medir mil veces el mismo puesto 'cadena' en empresas masivas.")
