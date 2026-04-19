@@ -203,8 +203,121 @@ elif seccion == "2. El ADP":
             st.error("Pregunta 3: Incorrecto. Las responsabilidades son la respuesta adecuada referida al nivel de compromiso.")
 
 elif seccion == "3. Dimensión Económica":
-    st.title("3. Dimensión Económica")
-    st.info("Contenido en desarrollo. Próximamente se añadirán los conceptos teóricos.")
+    st.title("3. Dimensión Económica del Personal")
+
+    st.write("Contratar no es únicamente encontrar a la persona adecuada, sino asegurar que la empresa puede asumir ese coste mes a mes sin desestabilizar su estructura financiera. La planificación del personal siempre debe aterrizar en un presupuesto y en un cálculo del coste por hora.")
+
+    st.header("3.1. El Presupuesto como Herramienta de Control")
+    st.write("Saber cuántas personas hacen falta no garantiza que la empresa pueda pagarlas. El presupuesto traduce el plan de plantilla a cifras y tiene una doble función:")
+    st.markdown("1. **Viabilidad:** Comprueba si la empresa puede permitirse la contratación.")
+    st.markdown("2. **Seguimiento:** Detecta desviaciones mensuales antes de que sean un problema.")
+
+    st.info("**Análisis de Sensibilidad:** Al usar hojas de cálculo con fórmulas cerradas, el presupuesto permite plantear escenarios como \"¿cuánto ahorraríamos si transformásemos dos contratos temporales en uno indefinido?\". Además, es útil imputar los costes por *centro de coste* (comercial, producción, etc.) para delegar la responsabilidad del gasto en los mandos intermedios.")
+
+    st.header("3.2. Cotizaciones a la Seguridad Social")
+    st.write("El empresario no paga solo el salario bruto, sino también una cuota a la Seguridad Social que puede elevar el coste total por encima del 30% del salario. El grueso de este coste recae de forma muy desigual sobre la empresa.")
+
+    st.markdown("""
+| Concepto | Empresa (%) | Trabajador (%) | Total (%) |
+| :--- | :--- | :--- | :--- |
+| Contingencias Comunes | 23,60% | 4,70% | 28,30% |
+| Desempleo (Indefinido) | 6,00% | 1,55% | 7,55% |
+| Desempleo (Temporal/ETT) | 7,70% | 1,60% | 9,30% |
+| FOGASA | 0,40% | - | 0,40% |
+""")
+
+    st.warning("**El epígrafe de accidentes (AT y EP):** Es un coste variable a cargo exclusivo de la empresa que depende de la actividad. No cuesta lo mismo asegurar a un administrativo que a un operario de obra.")
+
+    st.header("3.3. Complementos Salariales y Horas")
+    st.write("La mayoría de los pluses (peligrosidad, nocturnidad) se suman al salario bruto y *elevan la base de cotización* (se paga más a la Seguridad Social).")
+
+    st.markdown("""
+* **La excepción - El Plus de Transporte:** Compensa el gasto de desplazamiento, no el trabajo. Por tanto, *no computa* en la base de cotización siempre que esté dentro del límite legal.
+* **Horas Extraordinarias:** Las justificadas por *fuerza mayor* cotizan muy bajo (14% conjunto). El resto de horas extras cotizan igual que las contingencias comunes (28,30% conjunto). Abusar de ellas encarece la factura rápidamente.
+* **Horas Complementarias:** Solo aplican a contratos a tiempo parcial. Se retribuyen y cotizan exactamente igual que una hora ordinaria.
+""")
+
+    st.header("3.4. Cálculo del Coste Hora")
+    st.write("Para obtener una cifra operativa, la empresa debe sumar el salario bruto más todas las cotizaciones a su cargo para obtener el **Coste Total Empresa**.")
+    st.write("Para hallar el coste por hora real, se divide ese coste total entre el número de horas que marca el convenio.")
+
+    st.markdown("---")
+    st.header("Autoevaluación")
+    st.write("Pon a prueba tus conocimientos sobre la Dimensión Económica.")
+
+    with st.form("quiz_econ"):
+        q1_econ = st.radio(
+            "1. ¿Cuál es el concepto de cotización que supone el mayor coste para la empresa y qué porcentaje habitual representa?",
+            options=[
+                "A) Desempleo Indefinido, un 7,55%",
+                "B) Desempleo Temporal, un 9,30%",
+                "C) Contingencias comunes, un 23,60% a cargo de la empresa",
+                "D) FOGASA, un 0,40%"
+            ],
+            index=None
+        )
+
+        q2_econ = st.radio(
+            "2. ¿Qué característica especial tiene el \"Plus de Transporte\" frente a otros pluses como el de nocturnidad?",
+            options=[
+                "A) Siempre cotiza el doble a la Seguridad Social.",
+                "B) Solo se paga a los contratos a tiempo parcial.",
+                "C) Debe pagarse siempre en efectivo y en mano.",
+                "D) No se considera pago por trabajo, por lo que no computa en la base de cotización de la Seguridad Social hasta el límite legal."
+            ],
+            index=None
+        )
+
+        q3_econ = st.radio(
+            "3. ¿A qué tipo de contrato se aplican las \"Horas Complementarias\" y cómo cotizan?",
+            options=[
+                "A) Se aplican a contratos a tiempo parcial y cotizan igual que el salario ordinario.",
+                "B) Solo a directivos y no cotizan.",
+                "C) A contratos temporales y cotizan más barato que las horas extra.",
+                "D) A contratos de formación exclusivamente."
+            ],
+            index=None
+        )
+
+        q4_econ = st.radio(
+            "4. En la gestión del presupuesto, ¿qué es el \"análisis de sensibilidad\"?",
+            options=[
+                "A) Analizar psicológicamente a los empleados para medir su estrés.",
+                "B) La capacidad de usar herramientas informáticas para plantear escenarios del tipo \"¿qué pasaría si...?\" y evaluar el impacto económico.",
+                "C) Evaluar el riesgo de impago de un cliente.",
+                "D) Una métrica para medir las quejas sindicales."
+            ],
+            index=None
+        )
+
+        submitted_econ = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted_econ:
+        st.subheader("Resultados")
+
+        # Pregunta 1
+        if q1_econ and q1_econ.startswith("C"):
+            st.success("Pregunta 1: Correcto. Las Contingencias Comunes son la principal partida y suponen un 23,60% con cargo a la empresa.")
+        else:
+            st.error("Pregunta 1: Incorrecto. Revisa la tabla de cotizaciones, la partida más grande son las Contingencias Comunes.")
+
+        # Pregunta 2
+        if q2_econ and q2_econ.startswith("D"):
+            st.success("Pregunta 2: Correcto. El Plus de Transporte compensa el desplazamiento, no es estricto salario por trabajar, y puede estar exento si respeta los límites legales.")
+        else:
+            st.error("Pregunta 2: Incorrecto. Recuerda que es un concepto que compensa desplazamiento, por lo que tiene ventajas de cotización.")
+
+        # Pregunta 3
+        if q3_econ and q3_econ.startswith("A"):
+            st.success("Pregunta 3: Correcto. Se aplican solo a parciales y su precio y cotización es igual que el de una hora normal.")
+        else:
+            st.error("Pregunta 3: Incorrecto. Las horas complementarias son específicas del trabajo a tiempo parcial y no se penalizan con más porcentaje.")
+
+        # Pregunta 4
+        if q4_econ and q4_econ.startswith("B"):
+            st.success("Pregunta 4: Correcto. Nos permite adelantarnos a posibles sobrecostes jugando con distintas variables.")
+        else:
+            st.error("Pregunta 4: Incorrecto. Tiene que ver con las hipótesis y escenarios presupuestarios en hojas de cálculo.")
 
 elif seccion == "4. Técnicas de Recogida":
     st.title("4. Técnicas de Recogida")
