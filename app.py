@@ -46,46 +46,64 @@ Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
     st.header("Autoevaluación")
     st.write("Pon a prueba tus conocimientos sobre la planificación y captación de talento.")
 
-    with st.form("quiz_form"):
+    with st.form("quiz_reclutamiento"):
         q1 = st.radio(
-            "1. Según la planificación de la contratación, ¿qué factor nos obliga a preparar el reclutamiento con mayor tiempo de antelación?",
-            options=["A) El cálculo de las contingencias comunes", 
-                     "B) La escasez de personal cualificado en el mercado", 
-                     "C) El número de horas extras permitidas", 
-                     "D) El uso de redes sociales"],
+            "1. ¿Qué es el reclutamiento en el contexto organizativo?",
+            options=[
+                "A) Una función administrativa independiente del resto", 
+                "B) Un proceso técnico para atraer candidatos cualificados", 
+                "C) Un método para reducir costes laborales"
+            ],
             index=None
         )
         
         q2 = st.radio(
-            "2. ¿Qué herramienta es la base para el 'camino indirecto' en el reclutamiento interno?",
-            options=["A) Las ETTs", 
-                     "B) La convocatoria oficial de plaza", 
-                     "C) La valoración periódica de los puestos de trabajo", 
-                     "D) El anuncio de empleo neutral"],
+            "2. ¿En qué se basa la decisión entre reclutamiento interno, externo o mixto?",
+            options=[
+                "A) En la antigüedad de los empleados", 
+                "B) En un análisis de coste-beneficio", 
+                "C) En la preferencia del departamento de RRHH"
+            ],
             index=None
         )
 
         q3 = st.radio(
-            "3. En el cálculo de los costes operativos para comprobar la viabilidad financiera, ¿qué porcentaje aproximado suelen suponer las Contingencias Comunes a cargo de la empresa?",
-            options=["A) 6,00%", "B) 7,70%", "C) 14,00%", "D) 23,60%"],
+            "3. ¿Cuándo surge la planificación de la captación de personal?",
+            options=[
+                "A) Cuando hay exceso de trabajadores", 
+                "B) Cuando el número de trabajadores actuales es inferior al plan futuro", 
+                "C) Cuando se reducen los beneficios empresariales"
+            ],
             index=None
         )
 
         q4 = st.radio(
-            "4. ¿Cuál de los siguientes NO es un método de reclutamiento externo?",
-            options=["A) Colaboración con oficinas del INEM", 
-                     "B) Consultoras de reclutamiento", 
-                     "C) Promoción directa de un subordinado", 
-                     "D) Networking o 'boca a boca'"],
+            "4. ¿Qué caracteriza al reclutamiento interno por vía indirecta?",
+            options=[
+                "A) La publicación de una convocatoria oficial", 
+                "B) La contratación a través de agencias externas", 
+                "C) La detección del potencial de los trabajadores mediante evaluaciones periódicas"
+            ],
             index=None
         )
 
         q5 = st.radio(
-            "5. A la hora de redactar un anuncio de empleo externo, ¿qué dualidad informativa debe cumplir?",
-            options=["A) Información objetiva de tareas + cultura organizacional", 
-                     "B) Salario bruto + salario neto", 
-                     "C) Horario + Contingencias comunes", 
-                     "D) Neutralidad legal + Listado de horas extras"],
+            "5. ¿Cuál es un requisito fundamental en el diseño de un anuncio de empleo?",
+            options=[
+                "A) Incluir únicamente información sobre el salario", 
+                "B) Mantener la neutralidad legal y evitar discriminación", 
+                "C) Priorizar siempre el uso de redes sociales"
+            ],
+            index=None
+        )
+
+        q6 = st.radio(
+            "6. ¿Qué ventaja principal ofrece el uso de 'Redes de Contacto' (Networking o 'boca a boca') como táctica de reclutamiento externo?",
+            options=[
+                "A) Permite delegar la fase de criba técnica a consultoras especializadas", 
+                "B) Es un recurso económico que suele ofrecer resultados de alta fidelidad", 
+                "C) Atrae exclusivamente a candidatos de alta cualificación académica sin experiencia previa"
+            ],
             index=None
         )
 
@@ -94,35 +112,23 @@ Cuando se acude al mercado de trabajo exterior, existen diversas tácticas:
     if submitted:
         st.subheader("Resultados")
         
-        # Pregunta 1
-        if q1 and q1.startswith("B"):
-            st.success("Pregunta 1: Correcto. La escasez de perfiles cualificados en el mercado laboral exige iniciar la búsqueda mucho antes para garantizar el éxito.")
-        else:
-            st.error("Pregunta 1: Incorrecto. La escasez de perfiles cualificados en el mercado laboral exige iniciar la búsqueda mucho antes para garantizar el éxito.")
+        if q1 and q1.startswith("B"): st.success("Pregunta 1: ¡Correcto!") 
+        else: st.error("Pregunta 1: Incorrecto. Es un proceso técnico para atraer candidatos cualificados.")
             
-        # Pregunta 2
-        if q2 and q2.startswith("C"):
-            st.success("Pregunta 2: Correcto. El camino indirecto busca detectar el potencial latente de los trabajadores actuales mediante la Valoración de Puestos de Trabajo (VPT).")
-        else:
-            st.error("Pregunta 2: Incorrecto. El camino indirecto busca detectar el potencial latente de los trabajadores actuales mediante la Valoración de Puestos de Trabajo (VPT).")
+        if q2 and q2.startswith("B"): st.success("Pregunta 2: ¡Correcto!") 
+        else: st.error("Pregunta 2: Incorrecto. Se basa en un análisis de coste-beneficio.")
             
-        # Pregunta 3
-        if q3 and q3.startswith("D"):
-            st.success("Pregunta 3: Correcto. Las Contingencias Comunes son el mayor porcentaje, suponiendo habitualmente un 23,60%.")
-        else:
-            st.error("Pregunta 3: Incorrecto. Las Contingencias Comunes son el mayor porcentaje, suponiendo habitualmente un 23,60%.")
+        if q3 and q3.startswith("B"): st.success("Pregunta 3: ¡Correcto!") 
+        else: st.error("Pregunta 3: Incorrecto. Surge cuando el número de trabajadores actuales es inferior al plan futuro.")
             
-        # Pregunta 4
-        if q4 and q4.startswith("C"):
-            st.success("Pregunta 4: Correcto. La promoción directa es un método de reclutamiento interno.")
-        else:
-            st.error("Pregunta 4: Incorrecto. La promoción directa es un método de reclutamiento interno.")
+        if q4 and q4.startswith("C"): st.success("Pregunta 4: ¡Correcto!") 
+        else: st.error("Pregunta 4: Incorrecto. Se basa en la detección del potencial mediante evaluaciones periódicas.")
             
-        # Pregunta 5
-        if q5 and q5.startswith("A"):
-            st.success("Pregunta 5: Correcto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
-        else:
-            st.error("Pregunta 5: Incorrecto. El anuncio debe incluir la información objetiva de las tareas, pero también proyectar la cultura de la empresa (ej. ambiente de trabajo).")
+        if q5 and q5.startswith("B"): st.success("Pregunta 5: ¡Correcto!") 
+        else: st.error("Pregunta 5: Incorrecto. Es fundamental mantener la neutralidad legal y evitar discriminación.")
+
+        if q6 and q6.startswith("B"): st.success("Pregunta 6: ¡Correcto!") 
+        else: st.error("Pregunta 6: Incorrecto. Es un recurso económico que suele ofrecer resultados de alta fidelidad.")
 
 elif seccion == "2. El ADP":
     st.title("2. EL ADP: Análisis y Descripción de Puestos")
@@ -143,64 +149,91 @@ elif seccion == "2. El ADP":
 
     st.markdown("---")
     st.header("Autoevaluación")
-    st.write("Pon a prueba tus conocimientos sobre el Análisis y Descripción de Puestos.")
+    st.write("Pon a prueba tus conocimientos sobre los fundamentos, evolución y estructura del ADP.")
 
-    with st.form("form_adp"):
-        q1_adp = st.radio(
-            "1. ¿Qué factores históricos impulsaron el desarrollo de métodos sistemáticos de estandarización de puestos?",
+    with st.form("quiz_adp_definitivo"):
+        q1 = st.radio(
+            "1. ¿Qué elementos conforman las 'Competencias' dentro del denominado 'Trípode del Puesto' en el ADP?",
             options=[
-                "A) La necesidad de organizar la mano de obra durante los periodos de las guerras mundiales",
-                "B) La invención de la computadora",
-                "C) Las demandas sindicales a finales del s. XIX",
-                "D) El auge de las redes sociales corporativas"
+                "A) El conjunto de conocimientos, habilidades y actitudes necesarias para ejecutar correctamente las tareas", 
+                "B) Las obligaciones asociadas al puesto que determinan el nivel de autonomía, compromiso y autoridad", 
+                "C) La enumeración de las actividades físicas observables, la maquinaria y las herramientas proporcionadas"
+            ],
+            index=None
+        )
+        
+        q2 = st.radio(
+            "2. ¿Cuál es el objetivo principal del Análisis y Descripción de Puestos (ADP)?",
+            options=[
+                "A) Reducir los costes salariales de la empresa", 
+                "B) Ofrecer una estructura objetiva para comprender y optimizar los puestos", 
+                "C) Sustituir a los trabajadores por tecnología"
             ],
             index=None
         )
 
-        q2_adp = st.radio(
-            "2. ¿En qué se centra principalmente la técnica del ADP?",
+        q3 = st.radio(
+            "3. En sus primeras aplicaciones, el ADP se utilizaba principalmente para:",
             options=[
-                "A) En la motivación de la persona que ocupa el cargo",
-                "B) Exclusivamente en el puesto de trabajo, independientemente de la persona que lo ocupe",
-                "C) En calcular las horas extras del departamento",
-                "D) En organizar eventos de la empresa"
+                "A) La evaluación del desempeño", 
+                "B) La clasificación de tareas y la asignación salarial", 
+                "C) La prevención de riesgos laborales"
             ],
             index=None
         )
 
-        q3_adp = st.radio(
-            "3. Dentro del trípode del puesto, ¿qué elemento define el nivel de autonomía y la toma de decisiones?",
+        q4 = st.radio(
+            "4. ¿Cómo se considera actualmente el ADP dentro de la gestión de RR.HH.?",
             options=[
-                "A) Las tareas",
-                "B) Las competencias",
-                "C) Las responsabilidades",
-                "D) La experiencia previa"
+                "A) Como una herramienta estática y administrativa", 
+                "B) Como un proceso dinámico sujeto a revisión continua", 
+                "C) Como un método exclusivamente financiero"
             ],
             index=None
         )
 
-        submitted_adp = st.form_submit_button("Comprobar Respuestas")
+        q5 = st.radio(
+            "5. ¿Qué aportó Frederick Taylor al desarrollo del ADP?",
+            options=[
+                "A) La integración de factores emocionales en el trabajo", 
+                "B) La idea de descomponer el trabajo en tareas simples y medibles", 
+                "C) La creación de los sindicatos modernos"
+            ],
+            index=None
+        )
 
-    if submitted_adp:
+        q6 = st.radio(
+            "6. ¿Qué influencia tuvieron los periodos de guerra en la evolución del ADP?",
+            options=[
+                "A) Reducir la importancia de la organización del trabajo", 
+                "B) Desarrollar métodos más sistemáticos de selección y asignación de puestos", 
+                "C) Eliminar la necesidad de analizar los puestos"
+            ],
+            index=None
+        )
+
+        submitted = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted:
         st.subheader("Resultados")
+        
+        if q1 and q1.startswith("A"): st.success("Pregunta 1: ¡Correcto!") 
+        else: st.error("Pregunta 1: Incorrecto. Las competencias son el conjunto de conocimientos, habilidades y actitudes (saber, saber hacer, saber ser).")
+            
+        if q2 and q2.startswith("B"): st.success("Pregunta 2: ¡Correcto!") 
+        else: st.error("Pregunta 2: Incorrecto. Su objetivo principal es ofrecer una estructura objetiva para comprender y optimizar los puestos.")
+            
+        if q3 and q3.startswith("B"): st.success("Pregunta 3: ¡Correcto!") 
+        else: st.error("Pregunta 3: Incorrecto. Históricamente, se usaba para clasificar tareas y asignar salarios.")
+            
+        if q4 and q4.startswith("B"): st.success("Pregunta 4: ¡Correcto!") 
+        else: st.error("Pregunta 4: Incorrecto. Hoy en día es un proceso dinámico, estratégico y sujeto a revisión continua.")
+            
+        if q5 and q5.startswith("B"): st.success("Pregunta 5: ¡Correcto!") 
+        else: st.error("Pregunta 5: Incorrecto. Taylor introdujo la organización científica mediante la descomposición en tareas medibles.")
 
-        # Pregunta 1
-        if q1_adp and q1_adp.startswith("A"):
-            st.success("Pregunta 1: Correcto. La necesidad de organizar la mano de obra durante los periodos de las guerras mundiales.")
-        else:
-            st.error("Pregunta 1: Incorrecto. Relee la parte de las guerras mundiales, donde la escasez exigió obligadamente la organización.")
-
-        # Pregunta 2
-        if q2_adp and q2_adp.startswith("B"):
-            st.success("Pregunta 2: Correcto. Exclusivamente en el puesto de trabajo, independientemente de la persona que lo ocupe.")
-        else:
-            st.error("Pregunta 2: Incorrecto. El ADP se centra de forma exclusiva en el puesto de trabajo.")
-
-        # Pregunta 3
-        if q3_adp and q3_adp.startswith("C"):
-            st.success("Pregunta 3: Correcto. Las responsabilidades definen el grado de autonomía para tomar decisiones.")
-        else:
-            st.error("Pregunta 3: Incorrecto. Las responsabilidades son la respuesta adecuada referida al nivel de compromiso.")
+        if q6 and q6.startswith("B"): st.success("Pregunta 6: ¡Correcto!") 
+        else: st.error("Pregunta 6: Incorrecto. Obligaron a desarrollar métodos sistemáticos ante la escasez de recursos y la presión productiva.")
 
 elif seccion == "3. Dimensión Económica":
     st.title("3. Dimensión Económica del Personal")
@@ -243,81 +276,91 @@ elif seccion == "3. Dimensión Económica":
 
     st.markdown("---")
     st.header("Autoevaluación")
-    st.write("Pon a prueba tus conocimientos sobre la Dimensión Económica.")
+    st.write("Pon a prueba tus conocimientos sobre presupuestos, cotizaciones y costes salariales.")
 
-    with st.form("quiz_econ"):
-        q1_econ = st.radio(
-            "1. ¿Cuál es el concepto de cotización que supone el mayor coste para la empresa y qué porcentaje habitual representa?",
+    with st.form("quiz_economico_definitivo"):
+        q1 = st.radio(
+            "1. ¿Cuál es la función principal del presupuesto de personal más allá de calcular la necesidad neta de trabajadores?",
             options=[
-                "A) Desempleo Indefinido, un 7,55%",
-                "B) Desempleo Temporal, un 9,30%",
-                "C) Contingencias comunes, un 23,60% a cargo de la empresa",
-                "D) FOGASA, un 0,40%"
+                "A) Garantizar que todos los trabajadores reciban el mismo salario bruto independientemente de su puesto.", 
+                "B) Comprobar la viabilidad financiera y actuar como instrumento de seguimiento para detectar desviaciones.", 
+                "C) Servir únicamente como un listado detallado de los gastos fijos mensuales."
+            ],
+            index=None
+        )
+        
+        q2 = st.radio(
+            "2. ¿Qué ocurre con conceptos como el plus de transporte o las dietas en relación con la Seguridad Social?",
+            options=[
+                "A) Están exentos de cotización sin importar la cantidad que se abone al trabajador.", 
+                "B) No computan en la base de cotización siempre que no superen los límites legales establecidos.", 
+                "C) Cotizan siempre igual que el salario base para generar más derechos de jubilación."
             ],
             index=None
         )
 
-        q2_econ = st.radio(
-            "2. ¿Qué característica especial tiene el \"Plus de Transporte\" frente a otros pluses como el de nocturnidad?",
+        q3 = st.radio(
+            "3. ¿Cómo ayuda el uso de una hoja de cálculo (análisis de sensibilidad) en la planificación de personal?",
             options=[
-                "A) Siempre cotiza el doble a la Seguridad Social.",
-                "B) Solo se paga a los contratos a tiempo parcial.",
-                "C) Debe pagarse siempre en efectivo y en mano.",
-                "D) No se considera pago por trabajo, por lo que no computa en la base de cotización de la Seguridad Social hasta el límite legal."
+                "A) Se utiliza para sustituir al responsable de Recursos Humanos en la toma de decisiones.", 
+                "B) Garantiza que la Seguridad Social no modifique las cuotas mensuales.", 
+                "C) Permite simular diferentes escenarios, como el ahorro al cambiar tipos de contrato."
             ],
             index=None
         )
 
-        q3_econ = st.radio(
-            "3. ¿A qué tipo de contrato se aplican las \"Horas Complementarias\" y cómo cotizan?",
+        q4 = st.radio(
+            "4. ¿Qué ventaja tiene imputar los costes de personal por 'centros de coste' en departamentos distintos?",
             options=[
-                "A) Se aplican a contratos a tiempo parcial y cotizan igual que el salario ordinario.",
-                "B) Solo a directivos y no cotizan.",
-                "C) A contratos temporales y cotizan más barato que las horas extra.",
-                "D) A contratos de formación exclusivamente."
+                "A) Permite delegar la responsabilidad del gasto y el control de horas extras en los mandos intermedios.", 
+                "B) Elimina la necesidad de pagar cotizaciones a la Seguridad Social en el área comercial.", 
+                "C) Hace que el coste hora sea exactamente el mismo para todos los departamentos."
             ],
             index=None
         )
 
-        q4_econ = st.radio(
-            "4. En la gestión del presupuesto, ¿qué es el \"análisis de sensibilidad\"?",
+        q5 = st.radio(
+            "5. Al calcular el 'coste hora' de un trabajador para la empresa, ¿qué dos grandes bloques de gasto se deben sumar?",
             options=[
-                "A) Analizar psicológicamente a los empleados para medir su estrés.",
-                "B) La capacidad de usar herramientas informáticas para plantear escenarios del tipo \"¿qué pasaría si...?\" y evaluar el impacto económico.",
-                "C) Evaluar el riesgo de impago de un cliente.",
-                "D) Una métrica para medir las quejas sindicales."
+                "A) El salario neto del trabajador y los gastos de publicidad de la empresa.", 
+                "B) El salario bruto percibido por el trabajador más las cotizaciones a cargo de la empresa.", 
+                "C) El salario del trabajador y el alquiler de las oficinas."
             ],
             index=None
         )
 
-        submitted_econ = st.form_submit_button("Comprobar Respuestas")
+        q6 = st.radio(
+            "6. ¿Cómo influye el tipo de contrato en el coste de la cotización por desempleo para la empresa?",
+            options=[
+                "A) No influye en absoluto, ya que todos los trabajadores cotizan exactamente el mismo porcentaje por desempleo independientemente de su contrato.", 
+                "B) Un contrato indefinido tiene un porcentaje de cotización por desempleo menor que un contrato temporal a tiempo parcial o formalizado mediante ETT.", 
+                "C) Los contratos temporales y de Empresas de Trabajo Temporal (ETT) están totalmente exentos de cotizar por este concepto para fomentar el empleo."
+            ],
+            index=None
+        )
 
-    if submitted_econ:
+        submitted = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted:
         st.subheader("Resultados")
+        
+        if q1 and q1.startswith("B"): st.success("Pregunta 1: ¡Correcto!") 
+        else: st.error("Pregunta 1: Incorrecto. Su función es comprobar la viabilidad financiera y hacer seguimiento.")
+            
+        if q2 and q2.startswith("B"): st.success("Pregunta 2: ¡Correcto!") 
+        else: st.error("Pregunta 2: Incorrecto. No computan en la base de cotización siempre que estén dentro del límite legal.")
+            
+        if q3 and q3.startswith("C"): st.success("Pregunta 3: ¡Correcto!") 
+        else: st.error("Pregunta 3: Incorrecto. Permite hacer simulaciones (qué pasaría si...) para evaluar distintos escenarios económicos.")
+            
+        if q4 and q4.startswith("A"): st.success("Pregunta 4: ¡Correcto!") 
+        else: st.error("Pregunta 4: Incorrecto. Imputarlo por centros de coste permite delegar la responsabilidad del gasto en cada mando intermedio.")
+            
+        if q5 and q5.startswith("B"): st.success("Pregunta 5: ¡Correcto!") 
+        else: st.error("Pregunta 5: Incorrecto. Se suma el salario bruto y todas las cotizaciones a la Seguridad Social a cargo de la empresa.")
 
-        # Pregunta 1
-        if q1_econ and q1_econ.startswith("C"):
-            st.success("Pregunta 1: Correcto. Las Contingencias Comunes son la principal partida y suponen un 23,60% con cargo a la empresa.")
-        else:
-            st.error("Pregunta 1: Incorrecto. Revisa la tabla de cotizaciones, la partida más grande son las Contingencias Comunes.")
-
-        # Pregunta 2
-        if q2_econ and q2_econ.startswith("D"):
-            st.success("Pregunta 2: Correcto. El Plus de Transporte compensa el desplazamiento, no es estricto salario por trabajar, y puede estar exento si respeta los límites legales.")
-        else:
-            st.error("Pregunta 2: Incorrecto. Recuerda que es un concepto que compensa desplazamiento, por lo que tiene ventajas de cotización.")
-
-        # Pregunta 3
-        if q3_econ and q3_econ.startswith("A"):
-            st.success("Pregunta 3: Correcto. Se aplican solo a parciales y su precio y cotización es igual que el de una hora normal.")
-        else:
-            st.error("Pregunta 3: Incorrecto. Las horas complementarias son específicas del trabajo a tiempo parcial y no se penalizan con más porcentaje.")
-
-        # Pregunta 4
-        if q4_econ and q4_econ.startswith("B"):
-            st.success("Pregunta 4: Correcto. Nos permite adelantarnos a posibles sobrecostes jugando con distintas variables.")
-        else:
-            st.error("Pregunta 4: Incorrecto. Tiene que ver con las hipótesis y escenarios presupuestarios en hojas de cálculo.")
+        if q6 and q6.startswith("B"): st.success("Pregunta 6: ¡Correcto!") 
+        else: st.error("Pregunta 6: Incorrecto. Un contrato indefinido (tipo general) cotiza menos por desempleo que uno temporal o de ETT.")
 
 elif seccion == "4. Técnicas de Recogida":
     st.title("4. Técnicas de Recogida de Información")
@@ -361,81 +404,91 @@ Por ello, la práctica moderna exige combinar dos o más herramientas (ej. cuest
 
     st.markdown("---")
     st.header("Autoevaluación")
-    st.write("Pon a prueba tus conocimientos sobre las Técnicas de Recogida.")
+    st.write("Pon a prueba tus conocimientos sobre los métodos para obtener información de los puestos.")
 
-    with st.form("quiz_tecnicas"):
-        q1_tec = st.radio(
-            "1. Al utilizar la técnica de \"Observación Directa\", ¿cuál es su principal limitación cognitiva?",
+    with st.form("quiz_tecnicas_definitivo"):
+        q1 = st.radio(
+            "1. ¿Cuál es uno de los principales retos o inconvenientes de la técnica de observación directa no participante?",
             options=[
-                "A) El elevado coste de los cuestionarios impresos.",
-                "B) No permite registrar ni analizar procesos mentales, emocionales o de toma de decisiones complejas.",
-                "C) Que los analistas suelen aburrirse.",
-                "D) La dificultad de almacenar la información obtenida."
+                "A) No permite obtener datos objetivos sobre los movimientos físicos y tiempos empleados por el trabajador.", 
+                "B) No permite registrar ni analizar procesos mentales, emocionales o de toma de decisiones complejas.", 
+                "C) Su rapidez y economía hacen que se pierda profundidad en el análisis de las tareas."
+            ],
+            index=None
+        )
+        
+        q2 = st.radio(
+            "2. ¿En qué se centra principalmente la Entrevista de Incidentes Críticos?",
+            options=[
+                "A) En recopilar de forma ágil datos estadísticos y cerrados sobre el uso de herramientas en la jornada laboral.", 
+                "B) En identificar las competencias clave del puesto mediante la descripción de situaciones extremas concretas y pasadas.", 
+                "C) En registrar pormenorizadamente las actividades rutinarias y tareas monótonas que el trabajador realiza cada día."
             ],
             index=None
         )
 
-        q2_tec = st.radio(
-            "2. ¿Qué método es el más potente para diseñar perfiles basados en comportamientos y competencias, pidiendo al trabajador que relate situaciones de éxito o fracaso?",
+        q3 = st.radio(
+            "3. ¿Qué inconveniente puede surgir en una Reunión de Paneles de Expertos si el moderador no es lo suficientemente hábil?",
             options=[
-                "A) Observación Participante.",
-                "B) Entrevista de Incidentes Críticos.",
-                "C) Cuestionario cerrado estándar.",
-                "D) Reunión de Paneles de Expertos."
+                "A) Pueden surgir dinámicas de poder que cohíban a los empleados a la hora de hablar abiertamente delante de sus supervisores.", 
+                "B) El trabajador puede inventarse actividades y exagerar los tiempos empleados para justificar su salario.", 
+                "C) La información recopilada estará fuertemente sesgada por la falta de adaptación del vocabulario técnico."
             ],
             index=None
         )
 
-        q3_tec = st.radio(
-            "3. ¿Cuál es uno de los principales problemas operativos de utilizar un \"Diario de Trabajo\" en puestos mecánicos o de cadena de montaje?",
+        q4 = st.radio(
+            "4. ¿Cuál es una de las principales fortalezas del uso de cuestionarios y listas de chequeo para la recogida de información?",
             options=[
-                "A) Genera fricción e incomodidad al obligar al trabajador a interrumpir su labor física repetidamente para anotar.",
-                "B) Es ilegal pedir informes escritos en las cadenas de montaje.",
-                "C) Se requiere a un notario que valide todo lo escrito.",
-                "D) Fomenta demasiado la creatividad literaria."
+                "A) Su rapidez y economía, ya que son de fácil administración y permiten llegar a muchos trabajadores a la vez.", 
+                "B) Fomentan la observación in situ y el análisis cualitativo del entorno físico del trabajador.", 
+                "C) Permiten registrar y analizar procesos mentales, emocionales y de toma de decisiones complejas."
             ],
             index=None
         )
 
-        q4_tec = st.radio(
-            "4. ¿En qué consiste la \"Triangulación\" en el contexto del ADP?",
+        q5 = st.radio(
+            "5. ¿Qué implica aplicar un enfoque mixto o de triangulación metodológica en el Análisis y Descripción de Puestos?",
             options=[
-                "A) En calcular el área del centro de trabajo físico.",
-                "B) En basarse exclusivamente en las opiniones del empleado, su jefe y el sindicato.",
-                "C) En combinar varios métodos de recogida de información para que las fortalezas de unos compensen las debilidades de los otros.",
-                "D) En establecer tres niveles salariales por puesto."
+                "A) Dividir el proceso de análisis en tres fases secuenciales supervisadas por tres analistas externos.", 
+                "B) Combinar dos o más herramientas de recogida de datos para que las fortalezas de una compensen las debilidades de la otra.", 
+                "C) Seleccionar siempre a tres trabajadores clave de un mismo departamento para realizar el análisis simultáneamente."
             ],
             index=None
         )
 
-        submitted_tec = st.form_submit_button("Comprobar Respuestas")
+        q6 = st.radio(
+            "6. ¿Cuál es uno de los principales retos o inconvenientes operativos al utilizar la técnica del 'Diario de Trabajo' para recopilar información?",
+            options=[
+                "A) Requiere una elevada inversión económica y de tiempo al obligar al analista a estar presente toda la jornada.", 
+                "B) Genera fricción e incomodidad, ya que obliga al trabajador a interrumpir constantemente su labor física para registrar sus actividades.", 
+                "C) Solo permite obtener información sobre situaciones excepcionales o críticas, dejando fuera las rutinas diarias."
+            ],
+            index=None
+        )
 
-    if submitted_tec:
+        submitted = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted:
         st.subheader("Resultados")
+        
+        if q1 and q1.startswith("B"): st.success("Pregunta 1: ¡Correcto!") 
+        else: st.error("Pregunta 1: Incorrecto. Su mayor límite es cognitivo, no permite evaluar procesos mentales o toma de decisiones.")
+            
+        if q2 and q2.startswith("B"): st.success("Pregunta 2: ¡Correcto!") 
+        else: st.error("Pregunta 2: Incorrecto. Se centra en comportamientos pasados ante situaciones extremas para detectar competencias.")
+            
+        if q3 and q3.startswith("A"): st.success("Pregunta 3: ¡Correcto!") 
+        else: st.error("Pregunta 3: Incorrecto. El principal riesgo es que la jerarquía intimide al trabajador.")
+            
+        if q4 and q4.startswith("A"): st.success("Pregunta 4: ¡Correcto!") 
+        else: st.error("Pregunta 4: Incorrecto. Destacan por ser económicos y llegar masivamente a la plantilla rápidamente.")
+            
+        if q5 and q5.startswith("B"): st.success("Pregunta 5: ¡Correcto!") 
+        else: st.error("Pregunta 5: Incorrecto. Consiste en combinar métodos (ej. cuestionario + entrevista) para un resultado integral.")
 
-        # Pregunta 1
-        if q1_tec and q1_tec.startswith("B"):
-            st.success("Pregunta 1: Correcto. La observación mide muy bien conductas físicas pero no el factor racional y emocional.")
-        else:
-            st.error("Pregunta 1: Incorrecto. Recuerda que la observación solo permite el análisis físico y visual, sin registrar procesos internos como decisiones o razonamientos.")
-
-        # Pregunta 2
-        if q2_tec and q2_tec.startswith("B"):
-            st.success("Pregunta 2: Correcto. La entrevista de incidentes críticos identifica las competencias clave mediante situaciones pasadas del trabajador.")
-        else:
-            st.error("Pregunta 2: Incorrecto. Es un tipo de entorno de entrevista centrado específicamente en el pasado empírico para demostrar una competencia.")
-
-        # Pregunta 3
-        if q3_tec and q3_tec.startswith("A"):
-            st.success("Pregunta 3: Correcto. Supone un gran freno estar frenando operaciones de esfuerzo físico y precisión solo para escribir un registro temporal.")
-        else:
-            st.error("Pregunta 3: Incorrecto. Considera cómo anotar las cosas afecta la fluidez o ritmo de un trabajador que use sus manos en cadena.")
-
-        # Pregunta 4
-        if q4_tec and q4_tec.startswith("C"):
-            st.success("Pregunta 4: Correcto. La triangulación asegura obtener lo mejor de diferentes métodos, combinándolos.")
-        else:
-            st.error("Pregunta 4: Incorrecto. La triangulación aborda qué herramientas usar como técnica cruzada para compensar fallos.")
+        if q6 and q6.startswith("B"): st.success("Pregunta 6: ¡Correcto!") 
+        else: st.error("Pregunta 6: Incorrecto. Es un método incómodo en puestos manuales o de cadena de montaje.")
 
 elif seccion == "5. Metodología y Estrategia":
     st.title("5. Metodología y Estrategia del ADP")
@@ -472,78 +525,101 @@ elif seccion == "5. Metodología y Estrategia":
 
     st.markdown("---")
     st.header("Autoevaluación")
-    st.write("Pon a prueba tus conocimientos sobre Metodología y Estrategia del ADP.")
+    st.write("Pon a prueba tus conocimientos sobre la metodología, estrategia y aplicación práctica del ADP.")
 
-    with st.form("quiz_metodologia"):
-        q1_met = st.radio(
-            "1. ¿Cómo ayuda el ADP a que la inversión en formación de una empresa sea rentable?",
+    with st.form("quiz_metodologia_definitivo"):
+        q1 = st.radio(
+            "1. ¿De qué manera el Análisis de Puestos ayuda a la planificación de la formación?",
             options=[
-                "A) Reduciendo el salario durante el periodo de formación.",
-                "B) Permite detectar \"lagunas\" de conocimiento al comparar el perfil real del trabajador con las exigencias del puesto definidas en el ADP.",
-                "C) Obligando a los empleados a pagarse sus propios cursos.",
-                "D) Sustituyendo a los empleados menos formados por becarios."
+                "A) Determinando las carencias de conocimientos al comparar el perfil real con el ideal", 
+                "B) Reduciendo los costes salariales de los empleados recién contratados", 
+                "C) Eliminando la necesidad de realizar entrevistas de selección"
+            ],
+            index=None
+        )
+        
+        q2 = st.radio(
+            "2. Según los principios de prevención en salud laboral, ¿cuál es un objetivo fundamental del ADP?",
+            options=[
+                "A) Que el trabajador aumente su ritmo de producción de forma indefinida", 
+                "B) Adaptar el trabajo a la persona para evitar daños a la salud", 
+                "C) Sustituir obligatoriamente a los trabajadores por maquinaria automática"
             ],
             index=None
         )
 
-        q2_met = st.radio(
-            "2. Según la normativa de Salud Laboral, ¿cuál es el objetivo principal al diseñar un puesto?",
+        q3 = st.radio(
+            "3. Dentro del análisis operativo, ¿qué se busca definir con la pregunta '¿Por qué lo hace?'?",
             options=[
-                "A) Adaptar el trabajo a la persona.",
-                "B) Adaptar a la persona al trabajo forzando su ergonomía.",
-                "C) Pagar un plus económico por los riesgos no evitados.",
-                "D) Conseguir la máxima producción independientemente de los riesgos."
+                "A) Las herramientas informáticas y máquinas necesarias para el puesto", 
+                "B) Los requisitos de formación y las aptitudes físicas exigidas", 
+                "C) La finalidad y el objetivo que persigue la tarea para la organización"
             ],
             index=None
         )
 
-        q3_met = st.radio(
-            "3. En el Análisis Operativo, ¿a qué pregunta responde la descripción de las \"aptitudes físicas y conocimientos técnicos necesarios\"?",
+        q4 = st.radio(
+            "4. ¿En qué consiste el 'Criterio de Representatividad' al seleccionar puestos para un estudio?",
             options=[
-                "A) ¿Qué hace?",
-                "B) ¿Cómo lo hace?",
-                "C) ¿Quién lo hace?",
-                "D) ¿Con qué lo hace?"
+                "A) En analizar absolutamente todos los puestos de la plantilla de forma individual", 
+                "B) En elegir un puesto 'tipo' por cada línea de producto o división funcional", 
+                "C) En seleccionar únicamente a los trabajadores que tienen mayor antigüedad"
             ],
             index=None
         )
 
-        q4_met = st.radio(
-            "4. ¿Cuál es el criterio para seleccionar qué puestos estudiar en empresas donde es inviable analizarlos todos uno por uno?",
+        q5 = st.radio(
+            "5. ¿Cuál es una 'Regla de Oro' indispensable al redactar una descripción de puesto?",
             options=[
-                "A) Criterio de azar.",
-                "B) Solo analizar los puestos directivos.",
-                "C) Criterio de Representatividad, seleccionando puestos \"tipo\" significativos.",
-                "D) Analizar solo los puestos de nueva creación."
+                "A) Basarse exclusivamente en hechos reales y no en opiniones subjetivas", 
+                "B) Utilizar adjetivos como 'aburrido' o 'interesante' para describir la tarea", 
+                "C) Incluir detalles anecdóticos e 'historietas' para que el texto sea más largo"
             ],
             index=None
         )
 
-        submitted_met = st.form_submit_button("Comprobar Respuestas")
+        q6 = st.radio(
+            "6. Durante la planificación del proyecto de ADP, ¿por qué es vital la comunicación a la plantilla?",
+            options=[
+                "A) Para que los trabajadores puedan elegir libremente su propio horario de análisis", 
+                "B) Para evitar rumores y motivar la colaboración de los empleados en el proceso", 
+                "C) Para informar sobre cambios inmediatos en el sistema de retribución variable"
+            ],
+            index=None
+        )
 
-    if submitted_met:
+        q7 = st.radio(
+            "7. En el proceso de elaboración del Análisis y Descripción de Puestos (ADP), ¿cuál es la función principal del 'Responsable Jerárquico'?",
+            options=[
+                "A) Actuar como el experto técnico que aporta la metodología rigurosa para obtener los datos", 
+                "B) Validar que lo expresado por el trabajador y el analista coincide con la realidad operativa del departamento", 
+                "C) Asumir la responsabilidad global del proyecto y decidir su presupuesto y oportunidad estratégica"
+            ],
+            index=None
+        )
+
+        submitted = st.form_submit_button("Comprobar Respuestas")
+
+    if submitted:
         st.subheader("Resultados")
+        
+        if q1 and q1.startswith("A"): st.success("Pregunta 1: ¡Correcto!") 
+        else: st.error("Pregunta 1: Incorrecto. Permite detectar 'lagunas' comparando el perfil ideal del ADP con el perfil real del empleado.")
+            
+        if q2 and q2.startswith("B"): st.success("Pregunta 2: ¡Correcto!") 
+        else: st.error("Pregunta 2: Incorrecto. El principio clave en salud laboral es adaptar el trabajo (entorno, equipos) a la persona.")
+            
+        if q3 and q3.startswith("C"): st.success("Pregunta 3: ¡Correcto!") 
+        else: st.error("Pregunta 3: Incorrecto. Responde al propósito o misión final de la tarea.")
+            
+        if q4 and q4.startswith("B"): st.success("Pregunta 4: ¡Correcto!") 
+        else: st.error("Pregunta 4: Incorrecto. Consiste en elegir un puesto 'tipo' representativo y evitar analizarlos todos uno por uno.")
+            
+        if q5 and q5.startswith("A"): st.success("Pregunta 5: ¡Correcto!") 
+        else: st.error("Pregunta 5: Incorrecto. La descripción debe fijarse en hechos comprobables y lenguaje objetivo y neutral.")
 
-        # Pregunta 1
-        if q1_met and q1_met.startswith("B"):
-            st.success("Pregunta 1: Correcto. Al identificar el déficit formativo, se optimiza la inversión en cursos necesarios y enfocados al puesto directo.")
-        else:
-            st.error("Pregunta 1: Incorrecto. Revisa cómo el cruce entre los perfiles en el ADP indica dónde invertir de veras la formación.")
+        if q6 and q6.startswith("B"): st.success("Pregunta 6: ¡Correcto!") 
+        else: st.error("Pregunta 6: Incorrecto. Es vital para evitar rumores falsos y buscar la colaboración del personal.")
 
-        # Pregunta 2
-        if q2_met and q2_met.startswith("A"):
-            st.success("Pregunta 2: Correcto. La principal meta preventiva es conseguir adaptar los espacios o instrumentos a las personas, y no al revés (principio ético y legal de seguridad).")
-        else:
-            st.error("Pregunta 2: Incorrecto. La principal meta nunca es forzar a la persona ni priorizar la compensación económica sobre la integridad.")
-
-        # Pregunta 3
-        if q3_met and q3_met.startswith("C"):
-            st.success("Pregunta 3: Correcto. '¿Quién lo hace?' indaga en el perfil y formación o facultades mentales requeridas por quien lo ejerce.")
-        else:
-            st.error("Pregunta 3: Incorrecto. Comprueba la correspondencia en las '5 Cuestiones Básicas'. Aptitudes están en 'quién'.")
-
-        # Pregunta 4
-        if q4_met and q4_met.startswith("C"):
-            st.success("Pregunta 4: Correcto. Empleamos modelos representativos 'tipo' para conseguir muestras de ADP validadas por similitud.")
-        else:
-            st.error("Pregunta 4: Incorrecto. Considera cómo simplificaríamos para no medir mil veces el mismo puesto 'cadena' en empresas masivas.")
+        if q7 and q7.startswith("B"): st.success("Pregunta 7: ¡Correcto!") 
+        else: st.error("Pregunta 7: Incorrecto. Su principal función es validar que lo expresado por el trabajador coincide con la realidad operativa real.")
